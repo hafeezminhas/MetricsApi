@@ -10,6 +10,7 @@ import { companyCreateValidator, companyUpdateValidator } from './company.dto';
 
 import { AuthRole } from '../auth/role.enum';
 import companyModel from './company.model';
+import { CustomUtils } from '../../utils/custom-utils';
 
 const validator = createValidator();
 
@@ -33,13 +34,25 @@ class CompanyController implements Controller {
   private getCompanies = async (request: Request, response: Response, next: NextFunction) => {
     const page = +request.query.page || 1;
     const limit = +request.query.limit || 10;
-    const companies = await this.company.find()
-                                        .sort({ update_at: -1 })
-                                        .skip((page - 1) * limit)
-                                        .limit(limit);
-    const count = await this.company.countDocuments();
+    const search = request.query.search ? request.query.search.toString() : null;
 
-    response.send({ page, limit, count, companies });
+    if (search) {
+      const regex = new RegExp(this.escapeRegex(search), 'gi');
+      const companies = await this.company.find({ name: regex })
+                                          .sort({ update_at: -1 })
+                                          .skip((page - 1) * limit)
+                                          .limit(limit);
+      const count = await this.company.countDocuments();
+      response.send({ page, limit, count, companies, search });
+    } else {
+      const companies = await this.company.find()
+        .sort({ update_at: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      const count = await this.company.countDocuments();
+
+      response.send({ page, limit, count, companies });
+    }
   }
 
   private createCompany = async (request: Request, response: Response, next: NextFunction) => {
@@ -86,6 +99,10 @@ class CompanyController implements Controller {
     } catch (e) {
       response.send(e);
     }
+  }
+
+  private escapeRegex (str: string): any {
+    return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
   }
 }
 

@@ -7,13 +7,15 @@ import authMiddleware from '../../middleware/auth.middleware';
 import { plantModel } from './plant.model';
 import { plantCreateValidator, plantUpdateValidator } from './plant.dto';
 import Plant from './plant.interface';
-import { PlantPhaseHistoryItem } from './plant.enum';
+import {phaseHistoryModel} from './phase-history.model';
+import {PlantPhaseHistory} from './plant-phase-history.dto';
 
 const validator = createValidator();
 
 class PlantController implements Controller {
   public path = '/plants';
   public router = Router();
+  private phaseHistory = phaseHistoryModel;
   private plant = plantModel;
 
   constructor() {
@@ -31,23 +33,37 @@ class PlantController implements Controller {
   private getPlants = async (request: Request, response: Response, next: NextFunction) => {
     const page = +request.query.page || 1;
     const limit = +request.query.limit || 10;
-    const plantQuery = this.plant.find()
-                               .skip(page * limit)
-                               .limit(limit)
-                               .populate('phaseHistory');
+    const search = request.query.search? request.query.search.toString() : null;
+    if (search) {
+      const regex = new RegExp(this.escapeRegex(search), 'gi');
+      const plants = await this.plant.find({ $or: [{ name: regex }, { metricId: regex }]})
+                                      .sort({ update_at: -1 })
+                                      .skip((page - 1) * limit)
+                                      .limit(limit)
+                                      .populate('phaseHistory');
+      const count = await this.plant.countDocuments();
 
-    const plants = await plantQuery;
-    response.send({ page, limit, plants });
+      response.send({ page, limit, plants, count });
+    } else {
+      const plants = await this.plant.find()
+        .sort({ update_at: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .populate('phaseHistory');
+      const count = await this.plant.countDocuments();
+
+      response.send({ page, limit, plants, count });
+    }
   }
 
-  private createPlant = async (request: Request, response: Response, next: NextFunction) => {
+  private createPlant = async (request: Request | any, response: Response, next: NextFunction) => {
     const payload: Plant = request.body;
-    payload.phaseHistory.push({
-      phase: PlantPhaseHistoryItem.Seedling,
-      start: moment().toISOString(),
-      end: null,
-    });
+    payload.company = request.user.company;
+
     try {
+      const phases = await this.phaseHistory.insertMany(payload.phaseHistory);
+      payload.phaseHistory = phases.map(p => p._id);
+
       const plant = await this.plant.create(payload);
       response.send(plant);
     } catch (e) {
@@ -68,12 +84,28 @@ class PlantController implements Controller {
 
   private updatePlant = async (request: Request, response: Response, next: NextFunction) => {
     const id = request.params.id;
-    const plantQuery = this.plant.findByIdAndUpdate(id, {
-      $set: request.body,
-      $new: true,
-    });
+    const payload = request.body;
+    let newPhases: any;
+
     try {
-      const plant = await plantQuery;
+      if (payload.phaseHistory.length) {
+        newPhases = await this.phaseHistory.insertMany(payload.phaseHistory);
+        const pushPhases = async() => {
+          for (const ph of newPhases) {
+            await this.plant.findByIdAndUpdate(id, {
+              $push: { phaseHistory: ph._id },
+            });
+          }
+        };
+
+        await pushPhases();
+      }
+      delete payload.phaseHistory;
+      const updateQuery = this.plant.findByIdAndUpdate(id, {
+        $set: payload,
+      });
+
+      const plant = await updateQuery;
       response.send(plant);
     } catch (e) {
       response.send(e);
@@ -89,6 +121,10 @@ class PlantController implements Controller {
     } catch (e) {
       response.send(e);
     }
+  }
+
+  private escapeRegex (str: string): any {
+    return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
   }
 }
 

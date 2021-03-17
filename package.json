@@ -2,7 +2,7 @@
   "name": "express-angular-ts",
   "version": "1.0.0",
   "description": "Express Rest API with Typescript and Angular 11",
-  "main": "index.js",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "ts-node ./src/server.ts",
     "lint": "tslint -p tsconfig.json -c tslint.json",
