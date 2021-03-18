@@ -25,10 +25,10 @@ class CompanyController implements Controller {
 
   private initializeRoutes() {
     this.router.get(`${this.path}`, authMiddleware, permit(AuthRole.XADMIN), this.getCompanies);
-    this.router.post(`${this.path}`, authMiddleware, validator.body(companyCreateValidator), this.createCompany);
-    this.router.get(`${this.path}/:id`, authMiddleware, this.getCompanyById);
-    this.router.put(`${this.path}/:id`, authMiddleware, validator.body(companyUpdateValidator), this.updateCompany);
-    this.router.delete(`${this.path}/:id`, authMiddleware, this.deleteCompany);
+    this.router.post(`${this.path}`, authMiddleware, validator.body(companyCreateValidator), permit(AuthRole.XADMIN), this.createCompany);
+    this.router.get(`${this.path}/:id`, authMiddleware, permit(AuthRole.XADMIN), this.getCompanyById);
+    this.router.put(`${this.path}/:id`, authMiddleware, validator.body(companyUpdateValidator), permit(AuthRole.XADMIN), this.updateCompany);
+    this.router.delete(`${this.path}/:id`, authMiddleware, permit(AuthRole.XADMIN), this.deleteCompany);
   }
 
   private getCompanies = async (request: Request, response: Response, next: NextFunction) => {
