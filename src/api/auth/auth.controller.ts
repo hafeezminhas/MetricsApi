@@ -30,7 +30,7 @@ class AuthenticationController implements Controller {
   }
 
   private initializeRoutes() {
-    this.router.post(`${this.path}/register`, validator.body(userValidator), this.registration);
+    // this.router.post(`${this.path}/register`, validator.body(userValidator), this.registration);
     this.router.post(`${this.path}/password`, authMiddleware, validator.body(passwordValidator), this.changePassword);
     this.router.post(`${this.path}/login`, validator.body(credentialsValidator), this.login);
     this.router.post(`${this.path}/logout`, this.logout);
@@ -146,8 +146,8 @@ class AuthenticationController implements Controller {
   private createAdminUser = async (request: Request | any, response: Response, next: NextFunction) => {
     const payload = request.body;
     delete payload.confirm;
+    const user = await this.authenticationService.register(payload);
 
-    const user = await this.user.create(payload);
     response.send(user);
   }
 
