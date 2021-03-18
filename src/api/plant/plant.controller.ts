@@ -1,14 +1,12 @@
 import { createValidator } from 'express-joi-validation';
-import * as moment from 'moment';
 import { NextFunction, Request, Response, Router } from 'express';
 
 import Controller from '../../interfaces/controller.interface';
 import authMiddleware from '../../middleware/auth.middleware';
+import { phaseHistoryModel } from './phase-history.model';
 import { plantModel } from './plant.model';
 import { plantCreateValidator, plantUpdateValidator } from './plant.dto';
 import Plant from './plant.interface';
-import {phaseHistoryModel} from './phase-history.model';
-import {PlantPhaseHistory} from './plant-phase-history.dto';
 
 const validator = createValidator();
 

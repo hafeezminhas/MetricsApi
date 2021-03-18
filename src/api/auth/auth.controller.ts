@@ -2,15 +2,16 @@ import * as bcrypt from 'bcrypt';
 import { NextFunction, Request, Response, Router } from 'express';
 import * as jwt from 'jsonwebtoken';
 import { createValidator } from 'express-joi-validation';
-import WrongCredentialsException from '../../exceptions/WrongCredentialsException';
-import Controller from '../../interfaces/controller.interface';
-import TokenData from '../../interfaces/tokenData.interface';
-import { User, userValidator } from '../user/user.dto';
-import { userModel } from './../user/user.model';
+
+import authMiddleware from '../../middleware/auth.middleware';
 import { AuthenticationService } from './auth.service';
 import { credentialsValidator, passwordValidator } from './auth.dto';
+import Controller from '../../interfaces/controller.interface';
+import TokenData from '../../interfaces/tokenData.interface';
 import TokenPayload from '../../interfaces/dataStoredInToken';
-import authMiddleware from '../../middleware/auth.middleware';
+import { User, userValidator } from '../user/user.dto';
+import { userModel } from '../user/user.model';
+import WrongCredentialsException from '../../exceptions/WrongCredentialsException';
 
 const validator = createValidator();
 
