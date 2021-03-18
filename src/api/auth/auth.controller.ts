@@ -34,8 +34,8 @@ class AuthenticationController implements Controller {
     this.router.post(`${this.path}/password`, authMiddleware, validator.body(passwordValidator), this.changePassword);
     this.router.post(`${this.path}/login`, validator.body(credentialsValidator), this.login);
     this.router.post(`${this.path}/logout`, this.logout);
-    this.router.get(`${this.path}/users`, validator.query(paginationValidator), permit(AuthRole.XADMIN), this.getAdminUsers);
-    this.router.post(`${this.path}/users`, validator.body(adminUserValidator), permit(AuthRole.XADMIN), this.createAdminUser);
+    this.router.get(`${this.path}/users`, authMiddleware, validator.query(paginationValidator), permit(AuthRole.XADMIN), this.getAdminUsers);
+    this.router.post(`${this.path}/users`, authMiddleware, validator.body(adminUserValidator), permit(AuthRole.XADMIN), this.createAdminUser);
   }
 
   private registration = async (request: Request, response: Response, next: NextFunction) => {

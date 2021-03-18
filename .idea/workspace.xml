@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f57923c-c7ee-43a1-b3f1-6dcd9e024230" name="Default Changelist" comment="">
+    <list default="true" id="4f57923c-c7ee-43a1-b3f1-6dcd9e024230" name="Default Changelist" comment="auth middle ware added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middleware/permission.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/permission.middleware.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,7 +31,7 @@
           <entry key="js" value="7" />
           <entry key="json" value="8" />
           <entry key="log" value="2" />
-          <entry key="ts" value="149" />
+          <entry key="ts" value="151" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -38,7 +39,7 @@
           <entry key="JSON" value="7" />
           <entry key="JavaScript" value="7" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="TypeScript" value="149" />
+          <entry key="TypeScript" value="151" />
           <entry key="tsconfig" value="1" />
         </counts>
       </usages-collector>
@@ -48,16 +49,16 @@
           <entry key="gitignore" value="6" />
           <entry key="js" value="14" />
           <entry key="json" value="56" />
-          <entry key="ts" value="8586" />
-          <entry key="txt" value="132" />
+          <entry key="ts" value="8596" />
+          <entry key="txt" value="185" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="15" />
           <entry key="JavaScript" value="14" />
-          <entry key="PLAIN_TEXT" value="139" />
-          <entry key="TypeScript" value="8586" />
+          <entry key="PLAIN_TEXT" value="192" />
+          <entry key="TypeScript" value="8596" />
           <entry key="tsconfig" value="41" />
         </counts>
       </usages-collector>
@@ -90,11 +91,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/src/app.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="28">
@@ -118,8 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/auth/auth.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="37" column="84" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
+            <state relative-caret-position="702">
+              <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -130,8 +126,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/middleware/permission.middleware.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+            <state relative-caret-position="205">
+              <caret line="5" column="69" lean-forward="true" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
@@ -245,7 +241,6 @@
         <option value="$PROJECT_DIR$/src/api/plant/plant.dto.ts" />
         <option value="$PROJECT_DIR$/src/utils/escape-regex.ts" />
         <option value="$PROJECT_DIR$/src/utils/custom-utils.ts" />
-        <option value="$PROJECT_DIR$/src/api/company/company.controller.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/build/src/middleware/logger.middleware.js" />
@@ -253,6 +248,7 @@
         <option value="$PROJECT_DIR$/src/api/user/user.controller.ts" />
         <option value="$PROJECT_DIR$/src/api/plant/plant.controller.ts" />
         <option value="$PROJECT_DIR$/src/api/user/user.dto.ts" />
+        <option value="$PROJECT_DIR$/src/api/company/company.controller.ts" />
         <option value="$PROJECT_DIR$/src/api/auth/auth.controller.ts" />
         <option value="$PROJECT_DIR$/src/middleware/permission.middleware.ts" />
       </list>
@@ -350,6 +346,12 @@
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="middleware" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -415,11 +417,25 @@
       <option name="project" value="LOCAL" />
       <updated>1616091955725</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="permit middleware test">
+      <created>1616092298649</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616092298649</updated>
+    </task>
+    <task id="LOCAL-00004" summary="permit middleware test">
+      <created>1616093079926</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616093079926</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84157000" />
+    <option name="totallyTimeSpent" value="85328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1913" y="-7" width="2575" height="1415" extended-state="6" />
@@ -456,7 +472,9 @@
     <MESSAGE value="Plant Create, Update API implementation&#10;Plant search implementation done&#10;Company Search Implementation done" />
     <MESSAGE value="Few Changes" />
     <MESSAGE value="ADMIN API for URL: api/users implemented&#10;XADMIN API for URL api/auth/users (GET &amp; POST) implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADMIN API for URL: api/users implemented&#10;XADMIN API for URL api/auth/users (GET &amp; POST) implemented" />
+    <MESSAGE value="permit middleware test" />
+    <MESSAGE value="auth middle ware added" />
+    <option name="LAST_COMMIT_MESSAGE" value="auth middle ware added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/middleware/error.middleware.ts">
@@ -738,17 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/company/company.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#66#0" expanded="true" />
-            <element signature="e#144#206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/user/user.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
@@ -789,10 +796,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/company/company.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+            <element signature="e#144#206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/auth/auth.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="37" column="84" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
+        <state relative-caret-position="702">
+          <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
@@ -801,8 +819,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/middleware/permission.middleware.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+        <state relative-caret-position="205">
+          <caret line="5" column="69" lean-forward="true" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>
