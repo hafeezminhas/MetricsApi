@@ -7,6 +7,8 @@ import authMiddleware from '../../middleware/auth.middleware';
 import { userModel } from './user.model';
 import UserNotFoundException from '../../exceptions/UserNotFoundException';
 import { userValidator } from './user.dto';
+import permit from '../../middleware/permission.middleware';
+import {AuthRole} from '../auth/role.enum';
 
 const validator = createValidator();
 
@@ -26,24 +28,24 @@ class UserController implements Controller {
 
   private initializeRoutes() {
     this.router.get(`${this.path}`, authMiddleware, this.getUsers);
-    this.router.post(`${this.path}`, authMiddleware, validator.body(userValidator), this.getUsers);
+    this.router.post(`${this.path}`, authMiddleware, permit(AuthRole.ADMIN), validator.body(userValidator), this.getUsers);
     this.router.get(`${this.path}/:id`, authMiddleware, this.getUserById);
   }
 
-  private getUsers = async (request: Request, response: Response, next: NextFunction) => {
-    const id = request.params.id;
+  private getUsers = async (request: Request | any, response: Response, next: NextFunction) => {
+    const company = request.user.company;
     const page = +request.query.page || 1;
     const limit = +request.query.limit || 10;
-    const userQuery = this.user.find()
-                               .skip(page * limit)
+    const userQuery = this.user.find({ company })
+                               .skip((page - 1) * limit)
                                .limit(limit)
                                .populate('company');
 
-    const user = await userQuery;
-    if (user) {
-      response.send(user);
+    const users = await userQuery;
+    if (users) {
+      response.send({ page, limit, users });
     } else {
-      next(new UserNotFoundException(id));
+      next({ message: 'no users found' });
     }
   }
 

@@ -5,13 +5,16 @@ import { createValidator } from 'express-joi-validation';
 
 import authMiddleware from '../../middleware/auth.middleware';
 import { AuthenticationService } from './auth.service';
+import { AuthRole } from './role.enum';
 import { credentialsValidator, passwordValidator } from './auth.dto';
 import Controller from '../../interfaces/controller.interface';
 import TokenData from '../../interfaces/tokenData.interface';
 import TokenPayload from '../../interfaces/dataStoredInToken';
-import { User, userValidator } from '../user/user.dto';
+import {adminUserValidator, paginationValidator, User, userValidator} from '../user/user.dto';
 import { userModel } from '../user/user.model';
 import WrongCredentialsException from '../../exceptions/WrongCredentialsException';
+import permit from '../../middleware/permission.middleware';
+
 
 const validator = createValidator();
 
@@ -31,6 +34,8 @@ class AuthenticationController implements Controller {
     this.router.post(`${this.path}/password`, authMiddleware, validator.body(passwordValidator), this.changePassword);
     this.router.post(`${this.path}/login`, validator.body(credentialsValidator), this.login);
     this.router.post(`${this.path}/logout`, this.logout);
+    this.router.get(`${this.path}/users`, validator.query(paginationValidator), permit(AuthRole.XADMIN), this.getAdminUsers);
+    this.router.post(`${this.path}/users`, validator.body(adminUserValidator), permit(AuthRole.XADMIN), this.createAdminUser);
   }
 
   private registration = async (request: Request, response: Response, next: NextFunction) => {
@@ -103,6 +108,52 @@ class AuthenticationController implements Controller {
     };
   }
 
+  private getAdminUsers = async (request: Request | any, response: Response, next: NextFunction) => {
+    const page = +request.query.page || 1;
+    const limit = +request.query.limit || 10;
+    const search = request.query.search || null;
+
+    if (search) {
+      const regex = new RegExp(this.escapeRegex(search), 'gi');
+      const userQuery = this.user.find({
+        $and: [
+          { role: AuthRole.ADMIN },
+          {
+            $or: [
+              { name: regex },
+              { email: regex },
+            ],
+          },
+        ],
+      })
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .populate('company');
+
+      const users = await userQuery;
+      response.send({ page, limit, users, search });
+    } else {
+      const userQuery = this.user.find({ role: AuthRole.ADMIN })
+                                  .skip((page - 1) * limit)
+                                  .limit(limit)
+                                  .populate('company');
+
+      const users = await userQuery;
+      response.send({ page, limit, users });
+    }
+  }
+
+  private createAdminUser = async (request: Request | any, response: Response, next: NextFunction) => {
+    const payload = request.body;
+    delete payload.confirm;
+
+    const user = await this.user.create(payload);
+    response.send(user);
+  }
+
+  private escapeRegex (str: string): any {
+    return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+  }
 }
 
 export { AuthenticationController };

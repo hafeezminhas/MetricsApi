@@ -34,7 +34,7 @@ class PlantController implements Controller {
     const search = request.query.search? request.query.search.toString() : null;
     if (search) {
       const regex = new RegExp(this.escapeRegex(search), 'gi');
-      const plants = await this.plant.find({ $or: [{ name: regex }, { metricId: regex }]})
+      const plants = await this.plant.find({ $or: [{ name: regex }, { metricId: regex }] })
                                       .sort({ update_at: -1 })
                                       .skip((page - 1) * limit)
                                       .limit(limit)
