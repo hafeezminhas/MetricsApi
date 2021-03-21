@@ -4,14 +4,14 @@ class Address {
   public street: string;
   public city: string;
   public zip?: string;
-  public country: string;
+  public state: string;
 }
 
 const addressSchema = joi.object().keys({
   street: joi.string().required(),
   city: joi.string().required(),
-  state: joi.string().required(),
   zip: joi.number(),
+  state: joi.string().required(),
 });
 
 export { Address, addressSchema };

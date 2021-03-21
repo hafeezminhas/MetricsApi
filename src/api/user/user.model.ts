@@ -1,12 +1,12 @@
 import * as mongoose from 'mongoose';
-import User from './user.interface';
 import { AuthRole } from '../auth/role.enum';
+import { User } from './user.interface';
 
 const addressSchema = new mongoose.Schema({
-  city: String,
-  country: String,
-  zip: Number,
   street: String,
+  city: String,
+  zip: Number,
+  state: String,
 });
 
 const userSchema = new mongoose.Schema(
@@ -25,10 +25,7 @@ const userSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-    toJSON: {
-      virtuals: true,
-      getters: true,
-    },
+    toJSON: { virtuals: true, getters: true },
   },
 );
 

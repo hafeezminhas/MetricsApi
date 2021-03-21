@@ -11,8 +11,12 @@ interface User {
   address: {
     street: string,
     city: string,
-    country: string
+    zip: number,
+    state: string,
   };
+  isActive: boolean;
+  isLocked: boolean;
+  isDeleted: boolean;
 }
 
-export default User;
+export { User };

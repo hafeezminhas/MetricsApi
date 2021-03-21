@@ -2,13 +2,15 @@ import { Router, Request, Response, NextFunction } from 'express';
 import { createValidator } from 'express-joi-validation';
 import { ApiOperationGet, ApiPath, SwaggerDefinitionConstant } from 'swagger-express-typescript';
 
-import Controller from '../../interfaces/controller.interface';
+import { AuthRole } from '../auth/role.enum';
 import authMiddleware from '../../middleware/auth.middleware';
+import Controller from '../../interfaces/controller.interface';
+import permit from '../../middleware/permission.middleware';
 import { userModel } from './user.model';
 import UserNotFoundException from '../../exceptions/UserNotFoundException';
-import { userValidator } from './user.dto';
-import permit from '../../middleware/permission.middleware';
-import {AuthRole} from '../auth/role.enum';
+import {userCreateValidator, userUpdateValidator, userValidator } from './user.dto';
+import HttpException from '../../exceptions/HttpException';
+import {AuthenticationService} from '../auth/auth.service';
 
 const validator = createValidator();
 
@@ -22,59 +24,68 @@ class UserController implements Controller {
   public router = Router();
   private user = userModel;
 
+  public authenticationService = new AuthenticationService();
+
   constructor() {
     this.initializeRoutes();
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}`, authMiddleware, this.getUsers);
-    this.router.post(`${this.path}`, authMiddleware, permit(AuthRole.ADMIN), validator.body(userValidator), this.getUsers);
+    this.router.get(`${this.path}`, authMiddleware, permit(AuthRole.ADMIN, AuthRole.XADMIN), this.getUsers);
+    this.router.post(`${this.path}`, authMiddleware, permit(AuthRole.ADMIN), validator.body(userCreateValidator), this.createUser);
     this.router.get(`${this.path}/:id`, authMiddleware, this.getUserById);
+    this.router.put(`${this.path}/:id`, authMiddleware, validator.body(userUpdateValidator), this.updateUser);
   }
 
   private getUsers = async (request: Request | any, response: Response, next: NextFunction) => {
     const company = request.user.company;
-    const page = +request.query.page || 1;
-    const limit = +request.query.limit || 10;
-    const userQuery = this.user.find({ company })
-                               .skip((page - 1) * limit)
-                               .limit(limit)
-                               .populate('company');
-
+    const userQuery = this.user.find({ $and: [{ company }, { role: AuthRole.USER }] }).populate('company');
     const users = await userQuery;
-    if (users) {
-      response.send({ page, limit, users });
-    } else {
-      next({ message: 'no users found' });
+
+    response.send(users);
+  }
+
+  private createUser = async (request: Request | any, response: Response, next: NextFunction) => {
+    const payload = request.body;
+    payload.company = request.user.company;
+    payload.role = AuthRole.USER;
+    payload.isActive = true;
+    payload.isLocked = false;
+    console.log(payload);
+
+    try {
+      const user = await this.authenticationService.register(payload);
+      response.send(user);
+    } catch (err) {
+      next(new HttpException(500, err));
     }
   }
 
-  private createUser = async (request: Request, response: Response, next: NextFunction) => {
+  private getUserById = async (request: Request | any, response: Response, next: NextFunction) => {
     const id = request.params.id;
-    const page = +request.query.page || 1;
-    const limit = +request.query.limit || 10;
-    const userQuery = this.user.find()
-                               .skip(page * limit)
-                               .limit(limit)
-                               .populate('company');
-
+    const userQuery = this.user.findById(id);
     const user = await userQuery;
-    if (user) {
+    if (user && user.company === request.user.company) {
       response.send(user);
     } else {
       next(new UserNotFoundException(id));
     }
   }
 
-  private getUserById = async (request: Request, response: Response, next: NextFunction) => {
+  private updateUser = async (request: Request, response: Response, next: NextFunction) => {
     const id = request.params.id;
-    const userQuery = this.user.findById(id);
-    if (request.query.withPosts === 'true') {
-      userQuery.populate('posts').exec();
-    }
-    const user = await userQuery;
-    if (user) {
-      response.send(user);
+    const payload = request.body;
+    const target = await this.user.findById(id);
+    if (target) {
+      try {
+        const user = await this.user.findByIdAndUpdate(id, {
+          $set: payload,
+          $new: true,
+        });
+        response.send(user);
+      } catch (err) {
+        next(new HttpException(500, err));
+      }
     } else {
       next(new UserNotFoundException(id));
     }

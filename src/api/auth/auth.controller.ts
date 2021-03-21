@@ -4,17 +4,23 @@ import * as jwt from 'jsonwebtoken';
 import { createValidator } from 'express-joi-validation';
 
 import authMiddleware from '../../middleware/auth.middleware';
-import { AuthenticationService } from './auth.service';
+
 import { AuthRole } from './role.enum';
+
 import { credentialsValidator, passwordValidator } from './auth.dto';
-import Controller from '../../interfaces/controller.interface';
+import { paginationValidator, User, userCreateValidator, userUpdateValidator } from '../user/user.dto';
+
 import TokenData from '../../interfaces/tokenData.interface';
 import TokenPayload from '../../interfaces/dataStoredInToken';
-import {adminUserValidator, paginationValidator, User, userValidator} from '../user/user.dto';
 import { userModel } from '../user/user.model';
-import WrongCredentialsException from '../../exceptions/WrongCredentialsException';
+
 import permit from '../../middleware/permission.middleware';
 
+import HttpException from '../../exceptions/HttpException';
+import WrongCredentialsException from '../../exceptions/WrongCredentialsException';
+
+import { AuthenticationService } from './auth.service';
+import Controller from '../../interfaces/controller.interface';
 
 const validator = createValidator();
 
@@ -35,11 +41,13 @@ class AuthenticationController implements Controller {
     this.router.post(`${this.path}/login`, validator.body(credentialsValidator), this.login);
     this.router.post(`${this.path}/logout`, this.logout);
     this.router.get(`${this.path}/users`, authMiddleware, validator.query(paginationValidator), permit(AuthRole.XADMIN), this.getAdminUsers);
-    this.router.post(`${this.path}/users`, authMiddleware, validator.body(adminUserValidator), permit(AuthRole.XADMIN), this.createAdminUser);
+    this.router.post(`${this.path}/users`, authMiddleware, validator.body(userCreateValidator), permit(AuthRole.XADMIN), this.createAdminUser);
+    this.router.get(`${this.path}/users/:id`, authMiddleware, permit(AuthRole.XADMIN), this.getAdminUser);
+    this.router.put(`${this.path}/users/:id`, authMiddleware, validator.body(userUpdateValidator), permit(AuthRole.XADMIN), this.updateAdminUser);
   }
 
   private registration = async (request: Request, response: Response, next: NextFunction) => {
-    const userData: User = request.body;
+    const userData = request.body;
     try {
       const user = await this.authenticationService.register(userData);
       response.send(user);
@@ -50,7 +58,7 @@ class AuthenticationController implements Controller {
 
   private login = async (request: Request, response: Response, next: NextFunction) => {
     const logInData: { email: string, password: string } = request.body;
-    const user = await this.user.findOne({ email: logInData.email });
+    const user: User | any = await this.user.findOne({ email: logInData.email });
     if (user) {
       const isMatching = await bcrypt.compare(
         logInData.password,
@@ -130,25 +138,61 @@ class AuthenticationController implements Controller {
       .limit(limit)
       .populate('company');
 
-      const users = await userQuery;
-      response.send({ page, limit, users, search });
+      try {
+        const users = await userQuery;
+        response.send({ page, limit, users, search });
+      } catch (err) {
+        next(new HttpException(500, err));
+      }
     } else {
       const userQuery = this.user.find({ role: AuthRole.ADMIN })
                                   .skip((page - 1) * limit)
                                   .limit(limit)
                                   .populate('company');
-
-      const users = await userQuery;
-      response.send({ page, limit, users });
+      try {
+        const users = await userQuery;
+        response.send({ page, limit, users });
+      } catch (err) {
+        next(new HttpException(500, err));
+      }
     }
   }
 
   private createAdminUser = async (request: Request | any, response: Response, next: NextFunction) => {
     const payload = request.body;
     delete payload.confirm;
-    const user = await this.authenticationService.register(payload);
 
-    response.send(user);
+    try {
+      const user = await this.authenticationService.register(payload);
+      response.send(user);
+    } catch (err) {
+      next(new HttpException(500, err));
+    }
+  }
+
+  private getAdminUser = async (request: Request | any, response: Response, next: NextFunction) => {
+    const id = request.params.id;
+    const user = await this.user.findById(id);
+
+    try {
+      response.send(user);
+    } catch (err) {
+      next(new HttpException(500, err));
+    }
+  }
+
+  private updateAdminUser = async (request: Request | any, response: Response, next: NextFunction) => {
+    const id = request.params.id;
+    const payload = request.body;
+    try {
+      const user = await this.user.update(id, payload, {
+        new: true,
+      });
+
+      response.send(user);
+    } catch (err) {
+      next(new HttpException(500, err));
+    }
   }
 
   private escapeRegex (str: string): any {

@@ -4,7 +4,7 @@ import * as jwt from 'jsonwebtoken';
 import UserWithThatEmailAlreadyExistsException from '../../exceptions/UserWithThatEmailAlreadyExistsException';
 import TokenData from '../../interfaces/tokenData.interface';
 import TokenPayload from '../../interfaces/dataStoredInToken';
-import { User } from '../user/user.dto';
+import { User } from '../user/user.interface';
 import { userModel } from './../user/user.model';
 
 class AuthenticationService {
@@ -17,8 +17,7 @@ class AuthenticationService {
       throw new UserWithThatEmailAlreadyExistsException(userData.email);
     }
     const hashedPassword = await bcrypt.hash(userData.password, 10);
-    const user = await this.user.create({ ...userData, password: hashedPassword, });
-    return user;
+    return await this.user.create({ ...userData, password: hashedPassword });
   }
 
   public async changePassword(user: User, newPass: string) {
