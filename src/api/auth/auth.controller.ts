@@ -138,9 +138,11 @@ class AuthenticationController implements Controller {
       .limit(limit)
       .populate('company');
 
+      const count  = await userQuery.countDocuments();
+
       try {
         const users = await userQuery;
-        response.send({ page, limit, users, search });
+        response.send({ page, limit, users, search, count });
       } catch (err) {
         next(new HttpException(500, err));
       }
@@ -151,7 +153,9 @@ class AuthenticationController implements Controller {
                                   .populate('company');
       try {
         const users = await userQuery;
-        response.send({ page, limit, users });
+        const count = await userQuery.countDocuments();
+
+        response.send({ page, limit, users, count });
       } catch (err) {
         next(new HttpException(500, err));
       }
