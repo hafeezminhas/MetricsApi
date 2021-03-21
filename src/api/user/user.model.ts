@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.virtual('fullName').get(function () {
+  // @ts-ignore
   return `${this.firstName} ${this.lastName}`;
 });
 

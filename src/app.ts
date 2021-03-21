@@ -16,12 +16,14 @@ class App {
   public app: express.Application;
 
   constructor(controllers: Controller[]) {
+    // @ts-ignore
     this.app = express();
 
     this.connectToTheDatabase();
     this.initializeMiddlewares();
     this.initializeControllers(controllers);
     this.initializeErrorHandling();
+    this.initializeStaticFileServer();
     this.initializeSwagger();
   }
 
@@ -37,6 +39,7 @@ class App {
 
   private initializeMiddlewares() {
     this.app.use(bodyParser.json());
+    // @ts-ignore
     this.app.use(cookieParser());
   }
 
@@ -73,10 +76,12 @@ class App {
   private initializeStaticFileServer() {
     const env = process.env.NODE_ENV || 'dev';
 
-    if(env === 'dev'){
+    if(env === 'dev') {
       this.app.use(express.static(path.join(process.cwd(), 'public')));
+      // @ts-ignore
       this.app.use(morgan('dev'));  // log every request to the console
     } else {
+      // @ts-ignore
       this.app.use(compression());
       this.app.use(express.static(path.join(process.cwd(), 'public'), { maxAge: '7d' }));
     }

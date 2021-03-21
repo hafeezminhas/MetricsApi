@@ -21,6 +21,7 @@ import WrongCredentialsException from '../../exceptions/WrongCredentialsExceptio
 
 import { AuthenticationService } from './auth.service';
 import Controller from '../../interfaces/controller.interface';
+import RequestWithUser from '../../interfaces/requestWithUser.interface';
 
 const validator = createValidator();
 
@@ -36,25 +37,31 @@ class AuthenticationController implements Controller {
   }
 
   private initializeRoutes() {
+    // @ts-ignore
     // this.router.post(`${this.path}/register`, validator.body(userValidator), this.registration);
+    // @ts-ignore
     this.router.post(`${this.path}/password`, authMiddleware, validator.body(passwordValidator), this.changePassword);
+    // @ts-ignore
     this.router.post(`${this.path}/login`, validator.body(credentialsValidator), this.login);
-    this.router.post(`${this.path}/logout`, this.logout);
+    // @ts-ignore
     this.router.get(`${this.path}/users`, authMiddleware, validator.query(paginationValidator), permit(AuthRole.XADMIN), this.getAdminUsers);
+    // @ts-ignore
     this.router.post(`${this.path}/users`, authMiddleware, validator.body(userCreateValidator), permit(AuthRole.XADMIN), this.createAdminUser);
+    // @ts-ignore
     this.router.get(`${this.path}/users/:id`, authMiddleware, permit(AuthRole.XADMIN), this.getAdminUser);
+    // @ts-ignore
     this.router.put(`${this.path}/users/:id`, authMiddleware, validator.body(userUpdateValidator), permit(AuthRole.XADMIN), this.updateAdminUser);
   }
 
-  private registration = async (request: Request, response: Response, next: NextFunction) => {
-    const userData = request.body;
-    try {
-      const user = await this.authenticationService.register(userData);
-      response.send(user);
-    } catch (error) {
-      next(error);
-    }
-  }
+  // private registration = async (request: Request, response: Response, next: NextFunction) => {
+  //   const userData = request.body;
+  //   try {
+  //     const user = await this.authenticationService.register(userData);
+  //     response.send(user);
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // }
 
   private login = async (request: Request, response: Response, next: NextFunction) => {
     const logInData: { email: string, password: string } = request.body;
@@ -75,7 +82,7 @@ class AuthenticationController implements Controller {
     }
   }
 
-  private changePassword = async (request: Request | any, response: Response, next: NextFunction) => {
+  private changePassword = async (request: RequestWithUser, response: Response, next: NextFunction) => {
     const passData = request.body;
     const target = await this.user.findById(request.user._id);
     if (target) {
@@ -94,15 +101,10 @@ class AuthenticationController implements Controller {
     }
   }
 
-  // TODO: If server side session is required.
-  private logout = (request: Request, response: Response) => {
-    response.setHeader('Set-Cookie', ['Authorization=;Max-age=0']);
-    response.send(200);
-  }
-
   private createToken(user: User): TokenData {
-    const expiresIn = +process.env.JWT_AGE;
-    const secret = process.env.JWT_SECRET as string;
+    const { JWT_AGE, JWT_SECRET } = process.env;
+    const expiresIn = JWT_AGE ? +JWT_AGE : 7200;
+    const secret = JWT_SECRET as string;
     const tokenData: TokenPayload = {
       _id: user._id,
       fullName: `${user.firstName} ${user.lastName}`,
@@ -110,18 +112,20 @@ class AuthenticationController implements Controller {
       phone: user.phone,
       role: user.role,
     };
+
     return {
       expiresIn,
       token: jwt.sign(tokenData, secret, { expiresIn }),
     };
   }
 
-  private getAdminUsers = async (request: Request | any, response: Response, next: NextFunction) => {
+  private getAdminUsers = async (request: RequestWithUser, response: Response, next: NextFunction) => {
     const page = +request.query.page || 1;
     const limit = +request.query.limit || 10;
     const search = request.query.search || null;
 
     if (search) {
+      // @ts-ignore
       const regex = new RegExp(this.escapeRegex(search), 'gi');
       const userQuery = this.user.find({
         $and: [
@@ -138,10 +142,10 @@ class AuthenticationController implements Controller {
       .limit(limit)
       .populate('company');
 
-      const count  = await userQuery.estimatedDocumentCount();
-
       try {
         const users = await userQuery;
+        const count = await userQuery.estimatedDocumentCount();
+
         response.send({ page, limit, users, search, count });
       } catch (err) {
         next(new HttpException(500, err));
@@ -162,7 +166,7 @@ class AuthenticationController implements Controller {
     }
   }
 
-  private createAdminUser = async (request: Request | any, response: Response, next: NextFunction) => {
+  private createAdminUser = async (request: RequestWithUser, response: Response, next: NextFunction) => {
     const payload = request.body;
     delete payload.confirm;
 
@@ -174,7 +178,7 @@ class AuthenticationController implements Controller {
     }
   }
 
-  private getAdminUser = async (request: Request | any, response: Response, next: NextFunction) => {
+  private getAdminUser = async (request: RequestWithUser, response: Response, next: NextFunction) => {
     const id = request.params.id;
     const user = await this.user.findById(id);
 
@@ -185,11 +189,14 @@ class AuthenticationController implements Controller {
     }
   }
 
-  private updateAdminUser = async (request: Request | any, response: Response, next: NextFunction) => {
+  private updateAdminUser = async (request: RequestWithUser, response: Response, next: NextFunction) => {
     const id = request.params.id;
     const payload = request.body;
     try {
-      const user = await this.user.update(id, payload, {
+      // @ts-ignore
+      const user = await this.user.update(id, {
+        $set: payload,
+      }, {
         new: true,
       });
 

@@ -19,7 +19,7 @@ const skip = () => {
   return env !== 'development';
 };
 
-// Build the morgan middleware
+// @ts-ignore
 const loggerMiddleware = morgan(
   // Define message format string (this is the default one).
   // The message format is made from tokens, and each token is

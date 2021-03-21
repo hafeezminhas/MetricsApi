@@ -4,12 +4,9 @@
   "description": "Express Rest API with Typescript and Angular 11",
   "main": "src/server.ts",
   "scripts": {
-    "devserver": "ts-node ./src/server.ts",
     "start": "npm run transpile && node server.js",
-    "dev": "concurrently \"npm:watch\" \"npm:serve\"",
-    "serve": "nodemon ./dist/server.js",
-    "watch": "tsc -w",
-    "transpile": "tsc",
+    "dev": "ts-node ./src/server",
+    "prod": "ts-node ./src/server --transpile-only",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest"
   },

@@ -5,7 +5,7 @@ import { addressSchema } from './address.dto';
 import {AuthRole} from '../auth/role.enum';
 
 interface User {
-  _id?: string;
+  _id?: string | any;
   firstName: string;
   lastName: string;
   email: string;

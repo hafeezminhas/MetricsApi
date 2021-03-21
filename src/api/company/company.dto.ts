@@ -1,6 +1,5 @@
 import * as joi from 'joi';
 import { addressSchema } from '../user/address.dto';
-import { StateLicenceTypes } from './company.enum';
 
 const companyCreateValidator: any = joi.object().keys({
   name: joi.string().required(),

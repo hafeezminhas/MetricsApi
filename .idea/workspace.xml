@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f57923c-c7ee-43a1-b3f1-6dcd9e024230" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/api/auth/auth.controller.js" beforeDir="false" />
@@ -187,6 +188,9 @@
       <change beforePath="$PROJECT_DIR$/server/utils/validateEnv.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middleware/auth.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/auth.middleware.ts" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -231,8 +235,13 @@
           <entry key="env" value="1" />
           <entry key="gitignore" value="107" />
           <entry key="js" value="14" />
+<<<<<<< Updated upstream
           <entry key="json" value="105" />
           <entry key="ts" value="10733" />
+=======
+          <entry key="json" value="83" />
+          <entry key="ts" value="10504" />
+>>>>>>> Stashed changes
           <entry key="txt" value="397" />
         </counts>
       </usages-collector>
@@ -240,8 +249,13 @@
         <counts>
           <entry key="JSON" value="54" />
           <entry key="JavaScript" value="14" />
+<<<<<<< Updated upstream
           <entry key="PLAIN_TEXT" value="505" />
           <entry key="TypeScript" value="10733" />
+=======
+          <entry key="PLAIN_TEXT" value="404" />
+          <entry key="TypeScript" value="10504" />
+>>>>>>> Stashed changes
           <entry key="tsconfig" value="51" />
         </counts>
       </usages-collector>
@@ -258,8 +272,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="224">
               <caret line="7" column="46" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="46" />
+=======
+            <state relative-caret-position="192">
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="46" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -268,7 +287,7 @@
         <entry file="file://$PROJECT_DIR$/tsconfig.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1120">
-              <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -297,9 +316,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/api/auth/auth.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="458">
               <caret line="147" column="7" lean-forward="true" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
               <folding>
@@ -314,6 +334,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
               <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+=======
+            <state relative-caret-position="654">
+              <caret line="157" column="51" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -375,6 +402,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="prodbuild" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -418,7 +450,10 @@
         <option value="$PROJECT_DIR$/src/middleware/auth.middleware.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/api/auth/auth.controller.ts" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/.gitignore" />
+=======
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -607,7 +642,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="114622000" />
+=======
+    <option name="totallyTimeSpent" value="112202000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="1913" y="-7" width="2575" height="1415" extended-state="6" />
@@ -726,9 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="16" column="26" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -736,9 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="13" column="26" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -746,9 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -784,9 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="17" column="66" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -818,6 +845,7 @@
         <state relative-caret-position="-98" />
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/build/src/middleware/logger.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-162" />
@@ -836,6 +864,19 @@
     <entry file="file://$PROJECT_DIR$/build/src/app.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/src/middleware/logger.js" />
+    <entry file="file://$PROJECT_DIR$/build/src/server.js" />
+    <entry file="file://$PROJECT_DIR$/build/src/middleware/logger.middleware.js" />
+    <entry file="file://$PROJECT_DIR$/build/src/app.js" />
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/jest.config.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -843,10 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#66#0" expanded="true" />
-            <element signature="e#144#206#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -927,9 +964,23 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/build/server.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/src/api/user/user.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/server.js" />
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/middleware/logger.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1115">
@@ -947,16 +998,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/auth/tests/auth.controller.test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="11" column="39" lean-forward="true" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/auth/tests/auth.controller.test.ts" />
     <entry file="file://$PROJECT_DIR$/src/app.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -969,13 +1011,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="1120">
           <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+=======
+        <state relative-caret-position="654">
+          <caret line="157" column="51" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/user/user.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="664">
           <caret line="54" selection-start-line="54" selection-end-line="54" />
           <folding>
@@ -991,11 +1042,16 @@
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="1120">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="224">
           <caret line="7" column="46" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="46" />
         </state>
@@ -1015,6 +1071,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+=======
+        <state relative-caret-position="192">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="46" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
