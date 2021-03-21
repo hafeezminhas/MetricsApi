@@ -102,7 +102,7 @@ class AuthenticationController implements Controller {
 
   private createToken(user: User): TokenData {
     const expiresIn = +process.env.JWT_AGE;
-    const secret = process.env.JWT_SECRET;
+    const secret = process.env.JWT_SECRET as string;
     const tokenData: TokenPayload = {
       _id: user._id,
       fullName: `${user.firstName} ${user.lastName}`,
@@ -138,7 +138,7 @@ class AuthenticationController implements Controller {
       .limit(limit)
       .populate('company');
 
-      const count  = await userQuery.countDocuments();
+      const count  = await userQuery.estimatedDocumentCount();
 
       try {
         const users = await userQuery;
@@ -153,7 +153,7 @@ class AuthenticationController implements Controller {
                                   .populate('company');
       try {
         const users = await userQuery;
-        const count = await userQuery.countDocuments();
+        const count = await userQuery.estimatedDocumentCount();
 
         response.send({ page, limit, users, count });
       } catch (err) {

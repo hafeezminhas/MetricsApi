@@ -11,7 +11,7 @@ async function authMiddleware(request: RequestWithUser, response: Response, next
     const secret = process.env.JWT_SECRET;
     try {
       const token = request.headers.authorization as string;
-      const verificationResponse = jwt.verify(token, secret) as DataStoredInToken;
+      const verificationResponse = jwt.verify(token, secret as string) as DataStoredInToken;
       const id = verificationResponse._id;
       const user = await userModel.findById(id);
       if (user) {

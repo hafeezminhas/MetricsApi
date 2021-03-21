@@ -4,6 +4,7 @@
   "description": "Express Rest API with Typescript and Angular 11",
   "main": "src/server.ts",
   "scripts": {
+    "devserver": "ts-node ./src/server.ts",
     "start": "npm run transpile && node server.js",
     "dev": "concurrently \"npm:watch\" \"npm:serve\"",
     "serve": "nodemon ./dist/server.js",
