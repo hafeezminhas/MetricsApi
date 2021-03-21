@@ -1,12 +1,16 @@
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
+import * as morgan from 'morgan';
+import * as path from 'path';
+
+import * as compression from 'compression';
 import * as mongoose from 'mongoose';
 import * as swagger from 'swagger-express-typescript';
 
 import Controller from './interfaces/controller.interface';
 import errorMiddleware from './middleware/error.middleware';
-import loggerMiddleware from './middleware/logger.middleware';
+import { loggerMiddleware } from './middleware/logger.middleware';
 
 class App {
   public app: express.Application;
@@ -64,6 +68,18 @@ class App {
     controllers.forEach((controller) => {
       this.app.use('/api', controller.router);
     });
+  }
+
+  private initializeStaticFileServer() {
+    const env = process.env.NODE_ENV || 'dev';
+
+    if(env === 'dev'){
+      this.app.use(express.static(path.join(process.cwd(), 'public')));
+      this.app.use(morgan('dev'));  // log every request to the console
+    } else {
+      this.app.use(compression());
+      this.app.use(express.static(path.join(process.cwd(), 'public'), { maxAge: '7d' }));
+    }
   }
 
   private connectToTheDatabase() {

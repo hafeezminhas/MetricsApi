@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f57923c-c7ee-43a1-b3f1-6dcd9e024230" name="Default Changelist" comment="user creattion for ADMIN User updated">
+    <list default="true" id="4f57923c-c7ee-43a1-b3f1-6dcd9e024230" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/address.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/address.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/user.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/user.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/user.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/user.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/tests/auth.controller.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/tests/auth.service.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/logger.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/logger.middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/logger.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,19 +35,19 @@
         <counts>
           <entry key="env" value="3" />
           <entry key="gitignore" value="2" />
-          <entry key="js" value="7" />
-          <entry key="json" value="8" />
+          <entry key="js" value="8" />
+          <entry key="json" value="10" />
           <entry key="log" value="2" />
-          <entry key="ts" value="185" />
+          <entry key="ts" value="188" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="7" />
+          <entry key="JSON" value="8" />
+          <entry key="JavaScript" value="8" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="TypeScript" value="185" />
-          <entry key="tsconfig" value="1" />
+          <entry key="TypeScript" value="188" />
+          <entry key="tsconfig" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -54,18 +55,18 @@
           <entry key="env" value="1" />
           <entry key="gitignore" value="6" />
           <entry key="js" value="14" />
-          <entry key="json" value="56" />
-          <entry key="ts" value="10307" />
-          <entry key="txt" value="223" />
+          <entry key="json" value="83" />
+          <entry key="ts" value="10475" />
+          <entry key="txt" value="397" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="15" />
+          <entry key="JSON" value="32" />
           <entry key="JavaScript" value="14" />
-          <entry key="PLAIN_TEXT" value="230" />
-          <entry key="TypeScript" value="10307" />
-          <entry key="tsconfig" value="41" />
+          <entry key="PLAIN_TEXT" value="404" />
+          <entry key="TypeScript" value="10475" />
+          <entry key="tsconfig" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -78,11 +79,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="736">
+              <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tsconfig.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+            <state relative-caret-position="1120">
+              <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/middleware/logger.middleware.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+            <state relative-caret-position="486">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -102,20 +124,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/auth/auth.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="46" column="3" lean-forward="true" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="196">
+              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/user/user.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="664">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="e#0#66#0" expanded="true" />
               </folding>
@@ -144,12 +163,12 @@
       <find>.company</find>
       <find>companyQuery</find>
       <find>company</find>
-      <find>&quot;</find>
       <find>IUser</find>
       <find>(float)</find>
       <find>must match password</find>
       <find>console</find>
       <find>console.log</find>
+      <find>&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>', '</replace>
@@ -157,9 +176,9 @@
       <replace>.plant</replace>
       <replace>plantQuery</replace>
       <replace>plant</replace>
-      <replace>'</replace>
       <replace>User</replace>
       <replace>: number;</replace>
+      <replace>'</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Precision\Desktop\MilkMen\MetricsApp\api\src\middleware</dir>
@@ -184,7 +203,6 @@
         <option value="$PROJECT_DIR$/src/api/company/company.model.ts" />
         <option value="$PROJECT_DIR$/src/api/company/company.interface.ts" />
         <option value="$PROJECT_DIR$/src/server.ts" />
-        <option value="$PROJECT_DIR$/src/app.ts" />
         <option value="$PROJECT_DIR$/src/api/plant/plant.interface.ts" />
         <option value="$PROJECT_DIR$/src/api/company/company.dto.ts" />
         <option value="$PROJECT_DIR$/src/api/plant/plant.model.ts" />
@@ -195,10 +213,8 @@
         <option value="$PROJECT_DIR$/src/api/plant/plant.dto.ts" />
         <option value="$PROJECT_DIR$/src/utils/escape-regex.ts" />
         <option value="$PROJECT_DIR$/src/utils/custom-utils.ts" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/build/src/middleware/logger.middleware.js" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/src/api/plant/plant.controller.ts" />
         <option value="$PROJECT_DIR$/src/api/company/company.controller.ts" />
         <option value="$PROJECT_DIR$/src/middleware/permission.middleware.ts" />
@@ -209,6 +225,12 @@
         <option value="$PROJECT_DIR$/src/api/auth/auth.controller.ts" />
         <option value="$PROJECT_DIR$/src/api/user/user.controller.ts" />
         <option value="$PROJECT_DIR$/src/api/auth/auth.service.ts" />
+        <option value="$PROJECT_DIR$/src/middleware/logger.ts" />
+        <option value="$PROJECT_DIR$/src/middleware/logger.middleware.ts" />
+        <option value="$PROJECT_DIR$/src/app.ts" />
+        <option value="$PROJECT_DIR$/src/api/auth/tests/auth.controller.test.ts" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -250,20 +272,7 @@
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="middleware" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
@@ -303,12 +312,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
@@ -366,7 +369,7 @@
       <updated>1615151098672</updated>
       <workItem from="1615151101000" duration="18984000" />
       <workItem from="1615468792366" duration="53757000" />
-      <workItem from="1616229311580" duration="16867000" />
+      <workItem from="1616229311580" duration="22463000" />
     </task>
     <task id="LOCAL-00001" summary="Few Changes">
       <created>1616078337830</created>
@@ -410,11 +413,18 @@
       <option name="project" value="LOCAL" />
       <updated>1616094451823</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Model Changes for User, Address&#10;Auth Controller Changes for ADMIN User creation &amp; Management&#10;Users Controller Implementations for USER User creation &amp; Management">
+      <created>1616321673674</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616321673674</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106541000" />
+    <option name="totallyTimeSpent" value="112137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1913" y="-7" width="2575" height="1415" extended-state="6" />
@@ -454,25 +464,10 @@
     <MESSAGE value="permit middleware test" />
     <MESSAGE value="auth middle ware added" />
     <MESSAGE value="user creattion for ADMIN User updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="user creattion for ADMIN User updated" />
+    <MESSAGE value="Model Changes for User, Address&#10;Auth Controller Changes for ADMIN User creation &amp; Management&#10;Users Controller Implementations for USER User creation &amp; Management" />
+    <option name="LAST_COMMIT_MESSAGE" value="Model Changes for User, Address&#10;Auth Controller Changes for ADMIN User creation &amp; Management&#10;Users Controller Implementations for USER User creation &amp; Management" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/middleware/error.middleware.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exceptions/NotAuthorizedException.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/auth/auth.dto.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
@@ -699,20 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1024">
-          <caret line="64" column="21" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/exceptions/HttpException.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -732,16 +713,6 @@
           <caret line="20" column="2" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -773,16 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/auth/auth.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="46" column="3" lean-forward="true" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/user/user.interface.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -802,11 +763,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/user/user.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="664">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
           <folding>
             <element signature="e#0#66#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/server.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/middleware/logger.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1115">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/middleware/logger.middleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/auth/tests/auth.controller.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="11" column="39" lean-forward="true" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/auth/auth.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1120">
+          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
         </state>
       </provider>
     </entry>

@@ -1,12 +1,9 @@
 import UserWithThatEmailAlreadyExistsException from '../../exceptions/UserWithThatEmailAlreadyExistsException';
-import TokenData from '../../interfaces/tokenData.interface';
-import CreateUserDto from '../../user/user.dto';
 import AuthenticationService from '../authentication.service';
-
 describe('The AuthenticationService', () => {
     describe('when creating a cookie', () => {
         it('should return a string', () => {
-            const tokenData: TokenData = {
+            const tokenData = {
                 token: '',
                 expiresIn: 1,
             };
@@ -18,7 +15,7 @@ describe('The AuthenticationService', () => {
     describe('when registering a user', () => {
         describe('if the email is already taken', () => {
             it('should throw an error', async () => {
-                const userData: CreateUserDto = {
+                const userData = {
                     name: 'John Smith',
                     email: 'john@smith.com',
                     password: 'strongPassword123',
@@ -31,7 +28,7 @@ describe('The AuthenticationService', () => {
         });
         describe('if the email is not taken', () => {
             it('should not throw an error', async () => {
-                const userData: CreateUserDto = {
+                const userData = {
                     name: 'John Smith',
                     email: 'john@smith.com',
                     password: 'strongPassword123',
@@ -39,13 +36,11 @@ describe('The AuthenticationService', () => {
                 process.env.JWT_SECRET = 'jwt_secret';
                 const authenticationService = new AuthenticationService();
                 authenticationService.user.findOne = jest.fn().mockReturnValue(Promise.resolve(undefined));
-                authenticationService.user.create = jest.fn().mockReturnValue({
-                    ...userData,
-                    _id: 0,
-                });
+                authenticationService.user.create = jest.fn().mockReturnValue(Object.assign(Object.assign({}, userData), { _id: 0 }));
                 await expect(authenticationService.register(userData))
                     .resolves.toBeDefined();
             });
         });
     });
 });
+//# sourceMappingURL=auth.service.test.js.map
