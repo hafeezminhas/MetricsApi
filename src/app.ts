@@ -86,6 +86,10 @@ class App {
       this.app.use(compression());
       this.app.use(express.static(path.join(process.cwd(), 'public'), { maxAge: '7d' }));
     }
+
+    this.app.all('/*', (req, res) => {
+      res.sendfile('public/index.html');
+    });
   }
 
   private connectToTheDatabase() {
