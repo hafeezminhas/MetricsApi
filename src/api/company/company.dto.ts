@@ -9,7 +9,7 @@ const companyCreateValidator: any = joi.object().keys({
   address: addressSchema,
   established: joi.date().allow(null),
   metricId: joi.string().required(),
-  stateLicence: joi.array().items(joi.string()).required(),
+  stateLicense: joi.array().items(joi.string()).required(),
   companySize: joi.number().default(1),
   subscriptionType: joi.number().required().valid(...[1, 2]),
   userCount: joi.number().default(5),

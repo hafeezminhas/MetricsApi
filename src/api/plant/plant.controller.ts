@@ -1,3 +1,4 @@
+// @ts-ignore
 import { createValidator } from 'express-joi-validation';
 import { NextFunction, Request, Response, Router } from 'express';
 
@@ -104,9 +105,11 @@ class PlantController implements Controller {
         await pushPhases();
       }
       delete payload.phaseHistory;
-      const updateQuery = this.plant.findByIdAndUpdate(id, {
-        $set: payload,
-      });
+      const updateQuery = this.plant.findByIdAndUpdate(
+        id,
+        { ...payload },
+        { new: true },
+      );
 
       const plant = await updateQuery;
       response.send(plant);

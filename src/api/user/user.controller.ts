@@ -36,9 +36,11 @@ class UserController implements Controller {
     // @ts-ignore
     this.router.post(`${this.path}`, authMiddleware, permit(AuthRole.ADMIN), validator.body(userCreateValidator), this.createUser);
     // @ts-ignore
-    this.router.get(`${this.path}/:id`, authMiddleware, this.getUserById);
+    this.router.get(`${this.path}/:id`, authMiddleware, permit(AuthRole.ADMIN), this.getUserById);
     // @ts-ignore
-    this.router.put(`${this.path}/:id`, authMiddleware, validator.body(userUpdateValidator), this.updateUser);
+    this.router.put(`${this.path}/:id`, authMiddleware, permit(AuthRole.ADMIN), validator.body(userUpdateValidator), this.updateUser);
+    // @ts-ignore
+    this.router.delete(`${this.path}/:id`, authMiddleware, permit(AuthRole.ADMIN), this.deleteUser);
   }
 
   private getUsers = async (request: Request | any, response: Response, _: NextFunction) => {
@@ -55,7 +57,6 @@ class UserController implements Controller {
     payload.role = AuthRole.USER;
     payload.isActive = true;
     payload.isLocked = false;
-    console.log(payload);
 
     try {
       const user = await this.authenticationService.register(payload);
@@ -82,8 +83,27 @@ class UserController implements Controller {
     const target = await this.user.findById(id);
     if (target) {
       try {
+        const user = await this.user.findByIdAndUpdate(
+          id,
+          { ...payload },
+          { new: true },
+        );
+        response.send(user);
+      } catch (err) {
+        next(new HttpException(500, err));
+      }
+    } else {
+      next(new UserNotFoundException(id));
+    }
+  }
+
+  private deleteUser = async (request: Request, response: Response, next: NextFunction) => {
+    const id = request.params.id;
+    const target = await this.user.findById(id);
+    if (target) {
+      try {
         const user = await this.user.findByIdAndUpdate(id, {
-          $set: payload,
+          $set: { isDeleted: true },
           $new: true,
         });
         response.send(user);

@@ -137,27 +137,26 @@ class AuthenticationController implements Controller {
             ],
           },
         ],
-      })
-      .skip((page - 1) * limit)
-      .limit(limit)
-      .populate('company');
+      });
 
       try {
-        const users = await userQuery;
-        const count = await userQuery.estimatedDocumentCount();
+        const users = await userQuery
+                                    .skip((page - 1) * limit)
+                                    .limit(limit)
+                                    .populate('company');
+        const count = await userQuery.countDocuments();
 
         response.send({ page, limit, users, search, count });
       } catch (err) {
         next(new HttpException(500, err));
       }
     } else {
-      const userQuery = this.user.find({ role: AuthRole.ADMIN })
-                                  .skip((page - 1) * limit)
-                                  .limit(limit)
-                                  .populate('company');
       try {
-        const users = await userQuery;
-        const count = await userQuery.estimatedDocumentCount();
+        const users = await this.user.find({ role: AuthRole.ADMIN })
+                                    .skip((page - 1) * limit)
+                                    .limit(limit)
+                                    .populate('company');
+        const count = await this.user.find({ role: AuthRole.ADMIN }).countDocuments();
 
         response.send({ page, limit, users, count });
       } catch (err) {
@@ -193,12 +192,11 @@ class AuthenticationController implements Controller {
     const id = request.params.id;
     const payload = request.body;
     try {
-      // @ts-ignore
-      const user = await this.user.update(id, {
-        $set: payload,
-      }, {
-        new: true,
-      });
+      const user = await this.user.findByIdAndUpdate(
+        id,
+        { ...payload },
+        { new: true },
+      );
 
       response.send(user);
     } catch (err) {

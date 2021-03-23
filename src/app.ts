@@ -6,6 +6,7 @@ import * as path from 'path';
 
 import * as compression from 'compression';
 import * as mongoose from 'mongoose';
+// @ts-ignore
 import * as swagger from 'swagger-express-typescript';
 
 import Controller from './interfaces/controller.interface';
@@ -76,7 +77,7 @@ class App {
   private initializeStaticFileServer() {
     const env = process.env.NODE_ENV || 'dev';
 
-    if(env === 'dev') {
+    if (env === 'dev') {
       this.app.use(express.static(path.join(process.cwd(), 'public')));
       // @ts-ignore
       this.app.use(morgan('dev'));  // log every request to the console
@@ -89,7 +90,7 @@ class App {
 
   private connectToTheDatabase() {
     const env = process.env.NODE_ENV || 'dev';
-    const { MONGO_USER, MONGO_PASSWORD, MONGO_PATH, MONGO_DB } = process.env;
+    const { MONGO_USER, MONGO_PASSWORD, MONGO_DB } = process.env;
     const dbOpts = {
       useNewUrlParser: true,
       useCreateIndex: true,
@@ -105,7 +106,8 @@ class App {
           console.error(err);
         });
     } else {
-      mongoose.connect(`mongodb://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`, dbOpts);
+      // mongoose.connect(`mongodb://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`, dbOpts);
+      mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@cluster0.axx9h.mongodb.net/${MONGO_DB}?retryWrites=true&w=majority`, dbOpts);
     }
   }
 }

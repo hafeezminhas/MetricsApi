@@ -82,10 +82,13 @@ class CompanyController implements Controller {
 
   private updateCompany = async (request: Request, response: Response, _: NextFunction) => {
     const id = request.params.id;
-    const companyQuery = this.company.findByIdAndUpdate(id, {
-      $set: request.body,
-      $new: true,
-    });
+    const payload = request.body;
+
+    const companyQuery = this.company.findByIdAndUpdate(
+      id,
+      { ...payload },
+      { new: true },
+    );
     try {
       const company = await companyQuery;
       response.send(company);
