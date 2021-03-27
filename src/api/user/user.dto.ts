@@ -5,7 +5,7 @@ import { addressSchema } from './address.dto';
 import {AuthRole} from '../auth/role.enum';
 
 interface User {
-  _id?: string;
+  _id?: string | any;
   firstName: string;
   lastName: string;
   email: string;
@@ -36,7 +36,7 @@ const userCreateValidator: any = joi.object().keys({
   email: joi.string().required(),
   password: joi.string().required(),
   confirm: joi.any().valid(joi.ref('password')).required(),
-  role: joi.string().default(AuthRole.ADMIN),
+  role: joi.string(),
   phone: joi.string().required(),
   company: joi.string().allow(null),
   address: addressSchema.allow(null),
@@ -46,13 +46,17 @@ const userUpdateValidator: any = joi.object().keys({
   firstName: joi.string(),
   lastName: joi.string(),
   email: joi.string(),
-  role: joi.string().default(AuthRole.ADMIN),
-  phone: joi.string().required(),
+  role: joi.string(),
+  phone: joi.string(),
   company: joi.string(),
   address: addressSchema.allow(null),
   isActive: joi.boolean(),
   isLocked: joi.boolean(),
-  isDeleted: joi.boolean(),
+});
+
+const passwordUpdateValidator: any = joi.object().keys({
+  password: joi.string().required(),
+  confirm: joi.any().valid(joi.ref('password')).required(),
 });
 
 const paginationValidator: any = joi.object().keys({

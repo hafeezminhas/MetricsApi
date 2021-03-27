@@ -1,3 +1,4 @@
+// @ts-ignore
 import { createValidator } from 'express-joi-validation';
 import { NextFunction, Request, Response, Router } from 'express';
 
@@ -21,14 +22,19 @@ class PlantController implements Controller {
   }
 
   private initializeRoutes() {
+    // @ts-ignore
     this.router.get(`${this.path}`, authMiddleware, this.getPlants);
+    // @ts-ignore
     this.router.post(`${this.path}`, authMiddleware, validator.body(plantCreateValidator), this.createPlant);
+    // @ts-ignore
     this.router.get(`${this.path}/:id`, authMiddleware, this.getPlantById);
+    // @ts-ignore
     this.router.put(`${this.path}/:id`, authMiddleware, validator.body(plantUpdateValidator), this.updatePlant);
+    // @ts-ignore
     this.router.delete(`${this.path}/:id`, authMiddleware, this.deletePlant);
   }
 
-  private getPlants = async (request: Request, response: Response, next: NextFunction) => {
+  private getPlants = async (request: Request, response: Response, _: NextFunction) => {
     const page = +request.query.page || 1;
     const limit = +request.query.limit || 10;
     const search = request.query.search? request.query.search.toString() : null;
@@ -54,7 +60,7 @@ class PlantController implements Controller {
     }
   }
 
-  private createPlant = async (request: Request | any, response: Response, next: NextFunction) => {
+  private createPlant = async (request: Request | any, response: Response, _: NextFunction) => {
     const payload: Plant = request.body;
     payload.company = request.user.company;
 
@@ -69,7 +75,7 @@ class PlantController implements Controller {
     }
   }
 
-  private getPlantById = async (request: Request, response: Response, next: NextFunction) => {
+  private getPlantById = async (request: Request, response: Response, _: NextFunction) => {
     const id = request.params.id;
     const plantQuery = this.plant.findById(id).populate('phaseHistory');
     const plant = await plantQuery;
@@ -80,7 +86,7 @@ class PlantController implements Controller {
     }
   }
 
-  private updatePlant = async (request: Request, response: Response, next: NextFunction) => {
+  private updatePlant = async (request: Request, response: Response, _: NextFunction) => {
     const id = request.params.id;
     const payload = request.body;
     let newPhases: any;
@@ -99,9 +105,11 @@ class PlantController implements Controller {
         await pushPhases();
       }
       delete payload.phaseHistory;
-      const updateQuery = this.plant.findByIdAndUpdate(id, {
-        $set: payload,
-      });
+      const updateQuery = this.plant.findByIdAndUpdate(
+        id,
+        { ...payload },
+        { new: true },
+      );
 
       const plant = await updateQuery;
       response.send(plant);
@@ -110,7 +118,7 @@ class PlantController implements Controller {
     }
   }
 
-  private deletePlant = async (request: Request, response: Response, next: NextFunction) => {
+  private deletePlant = async (request: Request, response: Response, _: NextFunction) => {
     const id = request.params.id;
     try {
       const plantQuery = this.plant.findByIdAndDelete(id);

@@ -22,14 +22,22 @@ const userSchema = new mongoose.Schema(
     },
     role: { type: String, default: AuthRole.USER },
     company: { ref: 'Company', type: mongoose.Schema.Types.ObjectId },
+    isActive: { type: Boolean },
+    isLocked: { type: Boolean },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+      get: (): undefined => undefined,
+    },
   },
   {
     timestamps: true,
-    toJSON: { virtuals: true, getters: true },
+    toJSON: { virtuals: true, getters: true }
   },
 );
 
 userSchema.virtual('fullName').get(function () {
+  // @ts-ignore
   return `${this.firstName} ${this.lastName}`;
 });
 

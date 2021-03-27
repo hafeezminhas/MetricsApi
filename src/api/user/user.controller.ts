@@ -1,6 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { createValidator } from 'express-joi-validation';
-import { ApiOperationGet, ApiPath, SwaggerDefinitionConstant } from 'swagger-express-typescript';
+import { ApiPath } from 'swagger-express-typescript';
 
 import { AuthRole } from '../auth/role.enum';
 import authMiddleware from '../../middleware/auth.middleware';
@@ -8,7 +8,7 @@ import Controller from '../../interfaces/controller.interface';
 import permit from '../../middleware/permission.middleware';
 import { userModel } from './user.model';
 import UserNotFoundException from '../../exceptions/UserNotFoundException';
-import {userCreateValidator, userUpdateValidator, userValidator } from './user.dto';
+import {userCreateValidator, userUpdateValidator } from './user.dto';
 import HttpException from '../../exceptions/HttpException';
 import {AuthenticationService} from '../auth/auth.service';
 
@@ -31,13 +31,19 @@ class UserController implements Controller {
   }
 
   private initializeRoutes() {
+    // @ts-ignore
     this.router.get(`${this.path}`, authMiddleware, permit(AuthRole.ADMIN, AuthRole.XADMIN), this.getUsers);
+    // @ts-ignore
     this.router.post(`${this.path}`, authMiddleware, permit(AuthRole.ADMIN), validator.body(userCreateValidator), this.createUser);
-    this.router.get(`${this.path}/:id`, authMiddleware, this.getUserById);
-    this.router.put(`${this.path}/:id`, authMiddleware, validator.body(userUpdateValidator), this.updateUser);
+    // @ts-ignore
+    this.router.get(`${this.path}/:id`, authMiddleware, permit(AuthRole.ADMIN), this.getUserById);
+    // @ts-ignore
+    this.router.put(`${this.path}/:id`, authMiddleware, permit(AuthRole.ADMIN), validator.body(userUpdateValidator), this.updateUser);
+    // @ts-ignore
+    this.router.delete(`${this.path}/:id`, authMiddleware, permit(AuthRole.ADMIN), this.deleteUser);
   }
 
-  private getUsers = async (request: Request | any, response: Response, next: NextFunction) => {
+  private getUsers = async (request: Request | any, response: Response, _: NextFunction) => {
     const company = request.user.company;
     const userQuery = this.user.find({ $and: [{ company }, { role: AuthRole.USER }] }).populate('company');
     const users = await userQuery;
@@ -51,7 +57,6 @@ class UserController implements Controller {
     payload.role = AuthRole.USER;
     payload.isActive = true;
     payload.isLocked = false;
-    console.log(payload);
 
     try {
       const user = await this.authenticationService.register(payload);
@@ -78,8 +83,27 @@ class UserController implements Controller {
     const target = await this.user.findById(id);
     if (target) {
       try {
+        const user = await this.user.findByIdAndUpdate(
+          id,
+          { ...payload },
+          { new: true },
+        );
+        response.send(user);
+      } catch (err) {
+        next(new HttpException(500, err));
+      }
+    } else {
+      next(new UserNotFoundException(id));
+    }
+  }
+
+  private deleteUser = async (request: Request, response: Response, next: NextFunction) => {
+    const id = request.params.id;
+    const target = await this.user.findById(id);
+    if (target) {
+      try {
         const user = await this.user.findByIdAndUpdate(id, {
-          $set: payload,
+          $set: { isDeleted: true },
           $new: true,
         });
         response.send(user);

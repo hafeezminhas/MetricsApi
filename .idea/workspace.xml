@@ -1,15 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f57923c-c7ee-43a1-b3f1-6dcd9e024230" name="Default Changelist" comment="user creattion for ADMIN User updated">
+    <list default="true" id="4f57923c-c7ee-43a1-b3f1-6dcd9e024230" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/auth/auth.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/auth/auth.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/auth/auth.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/auth/auth.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/auth/auth.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/auth/auth.service.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/auth/role.enum.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/auth/role.enum.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.enum.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.enum.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/company/company.model.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/phase-history.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/phase-history.model.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant-phase-history.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant-phase-history.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.enum.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.enum.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/plant/plant.model.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/test/test.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/test/test.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/test/test.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/test/test.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/address.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/address.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/user.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/user.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/user.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/user.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/user.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/user.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/user.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user/user.model.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/app.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/AuthenticationTokenMissingException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/AuthenticationTokenMissingException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/HttpException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/HttpException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/NotAuthorizedException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/NotAuthorizedException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/PostNotFoundException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/PostNotFoundException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/UserNotFoundException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/UserNotFoundException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/UserWithThatEmailAlreadyExistsException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/UserWithThatEmailAlreadyExistsException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/WrongAuthenticationTokenException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/WrongAuthenticationTokenException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/WrongCredentialsException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/exceptions/WrongCredentialsException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/controller.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/controller.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/dataStoredInToken.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/dataStoredInToken.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/requestWithUser.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/requestWithUser.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/tokenData.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/tokenData.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/auth.middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/auth.middleware.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/error.middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/error.middleware.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/logger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/logger.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/logger.middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/logger.middleware.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/permission.middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/middleware/permission.middleware.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/server.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/utils/custom-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/utils/custom-utils.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/utils/validateEnv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/utils/validateEnv.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/auth.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/auth.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/auth.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/auth.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/auth.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/auth.service.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/role.enum.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/role.enum.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/tests/auth.controller.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/tests/auth.controller.test.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/tests/auth.service.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth/tests/auth.service.test.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.enum.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.enum.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/company/company.model.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/phase-history.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/phase-history.model.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant-phase-history.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant-phase-history.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.enum.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.enum.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/plant/plant.model.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/test/test.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/test/test.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/test/test.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/test/test.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/address.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/address.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/user.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/user.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/user.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/user.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/user.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/user.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/user.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/user.model.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/AuthenticationTokenMissingException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/AuthenticationTokenMissingException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/HttpException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/HttpException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/NotAuthorizedException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/NotAuthorizedException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/PostNotFoundException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/PostNotFoundException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/UserNotFoundException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/UserNotFoundException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/UserWithThatEmailAlreadyExistsException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/UserWithThatEmailAlreadyExistsException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/WrongAuthenticationTokenException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/WrongAuthenticationTokenException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/WrongCredentialsException.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/exceptions/WrongCredentialsException.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/interfaces/controller.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/interfaces/controller.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/interfaces/dataStoredInToken.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/interfaces/dataStoredInToken.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/interfaces/requestWithUser.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/interfaces/requestWithUser.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/interfaces/tokenData.interface.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/interfaces/tokenData.interface.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/auth.middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/auth.middleware.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/error.middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/error.middleware.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/logger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/logger.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/logger.middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/logger.middleware.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/permission.middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/permission.middleware.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/utils/custom-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/utils/custom-utils.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/utils/validateEnv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/utils/validateEnv.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/address.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/address.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/user.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/user.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/user.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/user.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/auth.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/auth.middleware.ts" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,39 +214,49 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="3" />
-          <entry key="gitignore" value="2" />
-          <entry key="js" value="7" />
-          <entry key="json" value="8" />
+          <entry key="gitignore" value="4" />
+          <entry key="js" value="8" />
+          <entry key="json" value="10" />
           <entry key="log" value="2" />
-          <entry key="ts" value="185" />
+          <entry key="ts" value="190" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="7" />
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="TypeScript" value="185" />
-          <entry key="tsconfig" value="1" />
+          <entry key="JSON" value="8" />
+          <entry key="JavaScript" value="8" />
+          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="TypeScript" value="190" />
+          <entry key="tsconfig" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="env" value="1" />
-          <entry key="gitignore" value="6" />
+          <entry key="gitignore" value="107" />
           <entry key="js" value="14" />
-          <entry key="json" value="56" />
-          <entry key="ts" value="10307" />
-          <entry key="txt" value="223" />
+<<<<<<< Updated upstream
+          <entry key="json" value="105" />
+          <entry key="ts" value="10733" />
+=======
+          <entry key="json" value="83" />
+          <entry key="ts" value="10504" />
+>>>>>>> Stashed changes
+          <entry key="txt" value="397" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="15" />
+          <entry key="JSON" value="54" />
           <entry key="JavaScript" value="14" />
-          <entry key="PLAIN_TEXT" value="230" />
-          <entry key="TypeScript" value="10307" />
-          <entry key="tsconfig" value="41" />
+<<<<<<< Updated upstream
+          <entry key="PLAIN_TEXT" value="505" />
+          <entry key="TypeScript" value="10733" />
+=======
+          <entry key="PLAIN_TEXT" value="404" />
+          <entry key="TypeScript" value="10504" />
+>>>>>>> Stashed changes
+          <entry key="tsconfig" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -79,10 +270,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+            <state relative-caret-position="224">
+              <caret line="7" column="46" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="46" />
+=======
+            <state relative-caret-position="192">
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="46" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tsconfig.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+            <state relative-caret-position="1120">
+              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/middleware/logger.middleware.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,8 +307,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+            <state relative-caret-position="486">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -99,11 +316,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/api/auth/auth.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="46" column="3" lean-forward="true" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
+<<<<<<< Updated upstream
+            <state relative-caret-position="458">
+              <caret line="147" column="7" lean-forward="true" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -112,10 +330,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+=======
+            <state relative-caret-position="654">
+              <caret line="157" column="51" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/user/user.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="664">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="e#0#66#0" expanded="true" />
               </folding>
@@ -144,12 +378,12 @@
       <find>.company</find>
       <find>companyQuery</find>
       <find>company</find>
-      <find>&quot;</find>
       <find>IUser</find>
       <find>(float)</find>
       <find>must match password</find>
       <find>console</find>
       <find>console.log</find>
+      <find>&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>', '</replace>
@@ -157,9 +391,9 @@
       <replace>.plant</replace>
       <replace>plantQuery</replace>
       <replace>plant</replace>
-      <replace>'</replace>
       <replace>User</replace>
       <replace>: number;</replace>
+      <replace>'</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Precision\Desktop\MilkMen\MetricsApp\api\src\middleware</dir>
@@ -168,6 +402,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="prodbuild" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -178,13 +417,11 @@
         <option value="$PROJECT_DIR$/src/api/company/company.enum.ts" />
         <option value="$PROJECT_DIR$/src/api/plant/phase-history.model.ts" />
         <option value="$PROJECT_DIR$/src/api/auth/auth.dto.ts" />
-        <option value="$PROJECT_DIR$/src/middleware/auth.middleware.ts" />
         <option value="$PROJECT_DIR$/src/interfaces/dataStoredInToken.ts" />
         <option value="$PROJECT_DIR$/src/api/auth/role.enum.ts" />
         <option value="$PROJECT_DIR$/src/api/company/company.model.ts" />
         <option value="$PROJECT_DIR$/src/api/company/company.interface.ts" />
         <option value="$PROJECT_DIR$/src/server.ts" />
-        <option value="$PROJECT_DIR$/src/app.ts" />
         <option value="$PROJECT_DIR$/src/api/plant/plant.interface.ts" />
         <option value="$PROJECT_DIR$/src/api/company/company.dto.ts" />
         <option value="$PROJECT_DIR$/src/api/plant/plant.model.ts" />
@@ -195,10 +432,7 @@
         <option value="$PROJECT_DIR$/src/api/plant/plant.dto.ts" />
         <option value="$PROJECT_DIR$/src/utils/escape-regex.ts" />
         <option value="$PROJECT_DIR$/src/utils/custom-utils.ts" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/build/src/middleware/logger.middleware.js" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/src/api/plant/plant.controller.ts" />
         <option value="$PROJECT_DIR$/src/api/company/company.controller.ts" />
         <option value="$PROJECT_DIR$/src/middleware/permission.middleware.ts" />
@@ -206,9 +440,20 @@
         <option value="$PROJECT_DIR$/src/api/user/user.interface.ts" />
         <option value="$PROJECT_DIR$/src/api/user/user.dto.ts" />
         <option value="$PROJECT_DIR$/src/api/user/user.model.ts" />
-        <option value="$PROJECT_DIR$/src/api/auth/auth.controller.ts" />
         <option value="$PROJECT_DIR$/src/api/user/user.controller.ts" />
         <option value="$PROJECT_DIR$/src/api/auth/auth.service.ts" />
+        <option value="$PROJECT_DIR$/src/middleware/logger.ts" />
+        <option value="$PROJECT_DIR$/src/middleware/logger.middleware.ts" />
+        <option value="$PROJECT_DIR$/src/app.ts" />
+        <option value="$PROJECT_DIR$/src/api/auth/tests/auth.controller.test.ts" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
+        <option value="$PROJECT_DIR$/src/middleware/auth.middleware.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/api/auth/auth.controller.ts" />
+<<<<<<< Updated upstream
+        <option value="$PROJECT_DIR$/.gitignore" />
+=======
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -250,24 +495,6 @@
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="middleware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -303,12 +530,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
@@ -366,7 +587,7 @@
       <updated>1615151098672</updated>
       <workItem from="1615151101000" duration="18984000" />
       <workItem from="1615468792366" duration="53757000" />
-      <workItem from="1616229311580" duration="16867000" />
+      <workItem from="1616229311580" duration="24948000" />
     </task>
     <task id="LOCAL-00001" summary="Few Changes">
       <created>1616078337830</created>
@@ -410,11 +631,22 @@
       <option name="project" value="LOCAL" />
       <updated>1616094451823</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Model Changes for User, Address&#10;Auth Controller Changes for ADMIN User creation &amp; Management&#10;Users Controller Implementations for USER User creation &amp; Management">
+      <created>1616321673674</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616321673674</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106541000" />
+<<<<<<< Updated upstream
+    <option name="totallyTimeSpent" value="114622000" />
+=======
+    <option name="totallyTimeSpent" value="112202000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="1913" y="-7" width="2575" height="1415" extended-state="6" />
@@ -454,25 +686,10 @@
     <MESSAGE value="permit middleware test" />
     <MESSAGE value="auth middle ware added" />
     <MESSAGE value="user creattion for ADMIN User updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="user creattion for ADMIN User updated" />
+    <MESSAGE value="Model Changes for User, Address&#10;Auth Controller Changes for ADMIN User creation &amp; Management&#10;Users Controller Implementations for USER User creation &amp; Management" />
+    <option name="LAST_COMMIT_MESSAGE" value="Model Changes for User, Address&#10;Auth Controller Changes for ADMIN User creation &amp; Management&#10;Users Controller Implementations for USER User creation &amp; Management" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/middleware/error.middleware.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exceptions/NotAuthorizedException.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/auth/auth.dto.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
@@ -548,9 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="16" column="26" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -558,9 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="13" column="26" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -568,9 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -606,9 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="17" column="66" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -640,13 +845,7 @@
         <state relative-caret-position="-98" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/build/src/middleware/logger.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-162" />
@@ -665,6 +864,19 @@
     <entry file="file://$PROJECT_DIR$/build/src/app.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/src/middleware/logger.js" />
+    <entry file="file://$PROJECT_DIR$/build/src/server.js" />
+    <entry file="file://$PROJECT_DIR$/build/src/middleware/logger.middleware.js" />
+    <entry file="file://$PROJECT_DIR$/build/src/app.js" />
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/jest.config.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -672,10 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#66#0" expanded="true" />
-            <element signature="e#144#206#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -699,32 +907,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1024">
-          <caret line="64" column="21" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/exceptions/HttpException.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/middleware/auth.middleware.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -732,16 +916,6 @@
           <caret line="20" column="2" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -773,16 +947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/auth/auth.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="46" column="3" lean-forward="true" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/user/user.interface.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -800,13 +964,117 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/build/server.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/src/api/user/user.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="664">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
           <folding>
             <element signature="e#0#66#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/server.js" />
+>>>>>>> Stashed changes
+    <entry file="file://$PROJECT_DIR$/src/middleware/logger.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1115">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/middleware/logger.middleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/auth/tests/auth.controller.test.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state relative-caret-position="1120">
+          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+=======
+        <state relative-caret-position="654">
+          <caret line="157" column="51" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/user/user.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state relative-caret-position="664">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/middleware/auth.middleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+=======
+        <state relative-caret-position="1120">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state relative-caret-position="224">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/auth/auth.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="147" column="7" lean-forward="true" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+=======
+        <state relative-caret-position="192">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="46" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>

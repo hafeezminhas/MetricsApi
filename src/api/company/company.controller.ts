@@ -10,7 +10,6 @@ import { companyCreateValidator, companyUpdateValidator } from './company.dto';
 
 import { AuthRole } from '../auth/role.enum';
 import companyModel from './company.model';
-import { CustomUtils } from '../../utils/custom-utils';
 
 const validator = createValidator();
 
@@ -24,14 +23,19 @@ class CompanyController implements Controller {
   }
 
   private initializeRoutes() {
+    // @ts-ignore
     this.router.get(`${this.path}`, authMiddleware, permit(AuthRole.XADMIN), this.getCompanies);
+    // @ts-ignore
     this.router.post(`${this.path}`, authMiddleware, validator.body(companyCreateValidator), permit(AuthRole.XADMIN), this.createCompany);
+    // @ts-ignore
     this.router.get(`${this.path}/:id`, authMiddleware, permit(AuthRole.XADMIN), this.getCompanyById);
+    // @ts-ignore
     this.router.put(`${this.path}/:id`, authMiddleware, validator.body(companyUpdateValidator), permit(AuthRole.XADMIN), this.updateCompany);
+    // @ts-ignore
     this.router.delete(`${this.path}/:id`, authMiddleware, permit(AuthRole.XADMIN), this.deleteCompany);
   }
 
-  private getCompanies = async (request: Request, response: Response, next: NextFunction) => {
+  private getCompanies = async (request: Request, response: Response, _: NextFunction) => {
     const page = +request.query.page || 1;
     const limit = +request.query.limit || 10;
     const search = request.query.search ? request.query.search.toString() : null;
@@ -55,7 +59,7 @@ class CompanyController implements Controller {
     }
   }
 
-  private createCompany = async (request: Request, response: Response, next: NextFunction) => {
+  private createCompany = async (request: Request, response: Response, _: NextFunction) => {
     const payload = request.body;
     try {
       const company = await this.company.create(payload);
@@ -65,7 +69,7 @@ class CompanyController implements Controller {
     }
   }
 
-  private getCompanyById = async (request: Request, response: Response, next: NextFunction) => {
+  private getCompanyById = async (request: Request, response: Response, _: NextFunction) => {
     const id = request.params.id;
     const companyQuery = this.company.findById(id);
     const company = await companyQuery;
@@ -76,12 +80,15 @@ class CompanyController implements Controller {
     }
   }
 
-  private updateCompany = async (request: Request, response: Response, next: NextFunction) => {
+  private updateCompany = async (request: Request, response: Response, _: NextFunction) => {
     const id = request.params.id;
-    const companyQuery = this.company.findByIdAndUpdate(id, {
-      $set: request.body,
-      $new: true,
-    });
+    const payload = request.body;
+
+    const companyQuery = this.company.findByIdAndUpdate(
+      id,
+      { ...payload },
+      { new: true },
+    );
     try {
       const company = await companyQuery;
       response.send(company);
@@ -90,7 +97,7 @@ class CompanyController implements Controller {
     }
   }
 
-  private deleteCompany = async (request: Request, response: Response, next: NextFunction) => {
+  private deleteCompany = async (request: Request, response: Response, _: NextFunction) => {
     const id = request.params.id;
     try {
       const companyQuery = this.company.findByIdAndDelete(id);
