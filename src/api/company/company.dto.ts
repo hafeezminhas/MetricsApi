@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as joi from 'joi';
 import { addressSchema } from '../user/address.dto';
 

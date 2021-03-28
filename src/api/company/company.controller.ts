@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
+// @ts-ignore
 import { createValidator } from 'express-joi-validation';
 
 /* Middlewares */

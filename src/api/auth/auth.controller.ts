@@ -64,8 +64,9 @@ class AuthenticationController implements Controller {
   // }
 
   private login = async (request: Request, response: Response, next: NextFunction) => {
+    console.log(request.body);
     const logInData: { email: string, password: string } = request.body;
-    const user: User | any = await this.user.findOne({ email: logInData.email });
+    const user: any = await this.user.findOne({ email: logInData.email });
     if (user) {
       const isMatching = await bcrypt.compare(
         logInData.password,
