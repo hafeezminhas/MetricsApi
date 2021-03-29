@@ -107,14 +107,18 @@ class TestController implements Controller {
                               .findById(id)
                               .populate('plants')
                               .populate('testParams');
-    const test = await testQuery;
-    if (request.user.role !== AuthRole.XADMIN && request.user.company !== test.company) {
-      next(new NotAuthorizedException('You are not authorized to view the requested data'));
-    }
-    if (test) {
-      response.send(test);
-    } else {
-      response.send({ message: 'requested test object not found' });
+    try {
+      const test = await testQuery;
+      if (request.user.role !== AuthRole.XADMIN && request.user.company !== test.company) {
+        next(new NotAuthorizedException('You are not authorized to view the requested data'));
+      }
+      if (test) {
+        response.send(test);
+      } else {
+        response.send({ message: 'requested test object not found' });
+      }
+    } catch (err) {
+      response.status(404).send('requested object not found');
     }
   }
 

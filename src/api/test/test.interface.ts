@@ -1,4 +1,4 @@
-import {Company} from '../company/company.interface';
+import { Company } from '../company/company.interface';
 
 class TestParams {
   public date: Date;
@@ -17,7 +17,7 @@ interface Test {
   description: string;
   plants: string[];
   testParams: TestParams[];
-  company: Company,
+  company: Company | string;
   resultDate: Date;
   wetWeight: number;
   dryWeight: number;
@@ -34,4 +34,4 @@ interface Test {
   TAC: number;
 }
 
-export { TestParams, Test }
+export { TestParams, Test };
