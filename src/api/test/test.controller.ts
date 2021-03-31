@@ -75,14 +75,14 @@ class TestController implements Controller {
       } else {
         queryFilter = { company: request.user.company };
       }
-      const plants = await this.test.find(queryFilter)
+      const tests = await this.test.find(queryFilter)
                                     .sort({ update_at: -1 })
                                     .skip((page - 1) * limit)
                                     .limit(limit)
                                     .populate('plants').populate('testParams');
       const count = await this.test.countDocuments(queryFilter);
 
-      response.send({ page, limit, plants, count });
+      response.send({ page, limit, tests, count });
     }
   }
 
