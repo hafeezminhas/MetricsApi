@@ -40,16 +40,16 @@ class PlantController implements Controller {
     const search = request.query.search? request.query.search.toString() : null;
     if (search) {
       const regex = new RegExp(this.escapeRegex(search), 'gi');
-      const plants = await this.plant.find({ $or: [{ name: regex }, { metricId: regex }] })
+      const plants = await this.plant.find({ $and : [{ isDeleted: false }, { $or: [{ name: regex }, { metricId: regex }] }]})
                                       .sort({ update_at: -1 })
                                       .skip((page - 1) * limit)
                                       .limit(limit)
                                       .populate('phaseHistory');
-      const count = await this.plant.countDocuments();
+      const count = await this.plant.countDocuments({ isDeleted: false });
 
       response.send({ page, limit, plants, count });
     } else {
-      const plants = await this.plant.find()
+      const plants = await this.plant.find({ isDeleted: false })
         .sort({ update_at: -1 })
         .skip((page - 1) * limit)
         .limit(limit)
@@ -67,6 +67,7 @@ class PlantController implements Controller {
     try {
       const phases = await this.phaseHistory.insertMany(payload.phaseHistory);
       payload.phaseHistory = phases.map(p => p._id);
+      payload.isDeleted = false;
 
       const plant = await this.plant.create(payload);
       response.send(plant);
@@ -121,7 +122,12 @@ class PlantController implements Controller {
   private deletePlant = async (request: Request, response: Response, _: NextFunction) => {
     const id = request.params.id;
     try {
-      const plantQuery = this.plant.findByIdAndDelete(id);
+      const plantQuery = this.plant.findByIdAndUpdate(
+        id,
+        {
+          $set: { isDeleted: true },
+        },
+        { new: true });
       const plant = await plantQuery;
       response.send(plant);
     } catch (e) {

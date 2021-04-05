@@ -53,12 +53,13 @@ class TestController implements Controller {
     const page = +request.query.page || 1;
     const limit = +request.query.limit || 10;
     const search = request.query.search ? request.query.search.toString() : null;
+    const deleted = request.query.deleted || false;
     let queryFilter: any;
     if (search) {
       const regex = new RegExp(this.escapeRegex(search), 'gi');
       queryFilter = { $or: [{ name: regex }, { description: regex }] };
       if (request.user.role !== AuthRole.XADMIN) {
-        queryFilter = { $and: [{ company: request.user.company }, ...queryFilter] };
+        queryFilter = { $and: [{ isDeleted: deleted }, { company: request.user.company }, ...queryFilter] };
       }
 
       const plants = await this.test.find(queryFilter)
@@ -73,7 +74,7 @@ class TestController implements Controller {
       if (request.user.role === AuthRole.XADMIN) {
         queryFilter = {};
       } else {
-        queryFilter = { company: request.user.company };
+        queryFilter = { $and: [{ isDeleted: deleted }, { company: request.user.company }] };
       }
       const tests = await this.test.find(queryFilter)
                                     .sort({ update_at: -1 })
@@ -93,6 +94,7 @@ class TestController implements Controller {
     try {
       const testParams = await this.testParams.insertMany(payload.testParams);
       payload.testParams = testParams.map(tp => tp._id);
+      payload.isDeleted = false;
 
       const test = await this.test.create(payload);
       response.send(test);
@@ -109,7 +111,7 @@ class TestController implements Controller {
                               .populate('testParams');
     try {
       const test = await testQuery;
-      if (request.user.role !== AuthRole.XADMIN && request.user.company !== test.company) {
+      if (request.user.role === AuthRole.XADMIN && request.user.company !== test.company) {
         next(new NotAuthorizedException('You are not authorized to view the requested data'));
       }
       if (test) {
@@ -147,7 +149,7 @@ class TestController implements Controller {
       delete payload.plants;
       const updateTest = this.test.findByIdAndUpdate(
         id,
-        { ...payload },
+        { $set: { ...payload } },
         { new: true },
       );
 
@@ -161,7 +163,13 @@ class TestController implements Controller {
   private deleteTest = async (request: RequestWithUser, response: Response, _: NextFunction) => {
     const id = request.params.id;
     try {
-      const plantQuery = this.test.findByIdAndDelete(id);
+      const plantQuery = this.test.findByIdAndUpdate(
+        id,
+        {
+          $set: { isDeleted: true },
+        },
+        { new: true },
+      );
       const plant = await plantQuery;
       response.send(plant);
     } catch (e) {

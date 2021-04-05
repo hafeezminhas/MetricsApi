@@ -64,7 +64,6 @@ class AuthenticationController implements Controller {
   // }
 
   private login = async (request: Request, response: Response, next: NextFunction) => {
-    console.log(request.body);
     const logInData: { email: string, password: string } = request.body;
     const user: any = await this.user.findOne({ email: logInData.email });
     if (user) {

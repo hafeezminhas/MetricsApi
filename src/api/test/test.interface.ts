@@ -32,6 +32,7 @@ interface Test {
   CBN: number;
   CBT: number;
   TAC: number;
+  isDeleted: boolean;
 }
 
 export { TestParams, Test };
