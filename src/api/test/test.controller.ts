@@ -42,6 +42,8 @@ class TestController implements Controller {
     // @ts-ignore
     this.router.delete(`${this.path}/:id`, authMiddleware, this.deleteTest);
     // @ts-ignore
+    this.router.delete(`${this.path}/:id/plants/:pid`, authMiddleware, this.deletePlantFromTest);
+    // @ts-ignore
     this.router.post(`${this.path}/:id/params`, authMiddleware, validator.body(testParamsCreateValidator), this.createTestParams);
     // @ts-ignore
     this.router.put(`${this.path}/params/:id`, authMiddleware, validator.body(testParamsUpdateValidator), this.updateTestParams);
@@ -174,6 +176,28 @@ class TestController implements Controller {
       response.send(plant);
     } catch (e) {
       response.send(e);
+    }
+  }
+
+  private deletePlantFromTest = async (request: RequestWithUser, response: Response, _: NextFunction) => {
+    const { id, pid } = request.params;
+    const target = await this.test.findById(id);
+    if (target && target.company.toString() === request.user.company.toString()) {
+      try {
+        const targetParam = await this.testParams.findByIdAndDelete(pid);
+        await this.test.findByIdAndUpdate(
+          id,
+          { $pull: [targetParam._id] },
+          { new: true },
+        );
+
+        const test = await this.test.findById(id);
+        response.send(test);
+      } catch (err) {
+        response.send(err);
+      }
+    } else {
+      response.status(404).send('requested test not found');
     }
   }
 

@@ -1,6 +1,7 @@
 import * as bcrypt from 'bcrypt';
 import { NextFunction, Request, Response, Router } from 'express';
 import * as jwt from 'jsonwebtoken';
+// @ts-ignore
 import { createValidator } from 'express-joi-validation';
 
 import authMiddleware from '../../middleware/auth.middleware';
