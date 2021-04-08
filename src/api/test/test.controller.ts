@@ -48,7 +48,7 @@ class TestController implements Controller {
     // @ts-ignore
     this.router.put(`${this.path}/params/:id`, authMiddleware, validator.body(testParamsUpdateValidator), this.updateTestParams);
     // @ts-ignore
-    this.router.delete(`${this.path}/params/:id`, authMiddleware, this.deleteTestParams);
+    this.router.delete(`${this.path}/:id/params/:pr`, authMiddleware, this.deleteTestParams);
   }
 
   private getTests = async (request: RequestWithUser, response: Response, _: NextFunction) => {
@@ -184,20 +184,24 @@ class TestController implements Controller {
     const target = await this.test.findById(id);
     if (target && target.company.toString() === request.user.company.toString()) {
       try {
-        const targetParam = await this.testParams.findByIdAndDelete(pid);
         await this.test.findByIdAndUpdate(
           id,
-          { $pull: [targetParam._id] },
+          {
+            $pull: { plants: pid },
+          },
           { new: true },
         );
 
-        const test = await this.test.findById(id);
+        const test = await this.test
+                                    .findById(id)
+                                    .populate('plants')
+                                    .populate('testParams');
         response.send(test);
       } catch (err) {
         response.send(err);
       }
     } else {
-      response.status(404).send('requested test not found');
+      response.send(new NotAuthorizedException('You are not authorized to perform this request'));
     }
   }
 
@@ -246,25 +250,28 @@ class TestController implements Controller {
   private deleteTestParams = async (request: RequestWithUser, response: Response, _: NextFunction) => {
     const id = request.params.id;
     // @ts-ignore
-    const parent: Test[] = await this.test.find({ testParams: { $in: [id] } });
-    if (!parent.length) {
+    const parent: Test = await this.test.findById(id);
+    if (!parent) {
       response.send({ success: false, message: 'Parent test not found' });
     }
-
-    try {
-      const testParams = await this.testParams.findByIdAndDelete(id);
-      await this.testParams.findByIdAndUpdate(id, {
-        $pull: { testParams: [testParams._id] },
-        new: true,
-      });
-      const result = await this.test
-                                    .findById(parent[0]._id)
+    if (parent && parent.company.toString() === request.user.company.toString()) {
+      try {
+        const testParams = await this.testParams.findByIdAndDelete(request.params.pr);
+        await this.testParams.findByIdAndUpdate(id, {
+          $pull: { testParams: [testParams._id] },
+          new: true,
+        });
+        const result = await this.test
+                                    .findById(parent._id)
                                     .populate('plants')
                                     .populate('testParams');
 
-      response.send(result);
-    } catch (e) {
-      response.send(e);
+        response.send(result);
+      } catch (e) {
+        response.send(e);
+      }
+    } else {
+      response.send(new NotAuthorizedException('You are not authorized to perform this request'));
     }
   }
 
