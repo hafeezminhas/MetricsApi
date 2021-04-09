@@ -258,7 +258,8 @@ class TestController implements Controller {
       try {
         const testParams = await this.testParams.findByIdAndDelete(request.params.pr);
         await this.testParams.findByIdAndUpdate(id, {
-          $pull: { testParams: [testParams._id] },
+          // @ts-ignore
+          $pull: { testParams: testParams._id },
           new: true,
         });
         const result = await this.test
