@@ -1,6 +1,7 @@
 import { PlantPhaseHistory } from './plant-phase-history.dto';
 
 export interface Plant {
+  _id?: string;
   name: string;
   metricId: string;
   strain: string;
@@ -11,5 +12,6 @@ export interface Plant {
   phaseHistory: PlantPhaseHistory[];
   location: string;
   company: string;
+  isDeleted?: boolean;
 }
 export default Plant;

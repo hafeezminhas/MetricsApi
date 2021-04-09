@@ -94,7 +94,7 @@ class App {
 
   private connectToTheDatabase() {
     const env = process.env.NODE_ENV || 'dev';
-    const { MONGO_USER, MONGO_PASSWORD, MONGO_DB } = process.env;
+    const { MONGO_USER, MONGO_PASSWORD, MONGO_DB, MONGO_DB_DEV } = process.env;
     const dbOpts = {
       useNewUrlParser: true,
       useCreateIndex: true,
@@ -104,7 +104,7 @@ class App {
 
     if (env === 'dev') {
       mongoose
-        .connect(`mongodb://localhost:27017/${MONGO_DB}`, dbOpts)
+        .connect(`mongodb://localhost:27017/${MONGO_DB_DEV}`, dbOpts)
         .then(() => console.log('DB Connection Successfull'))
         .catch((err) => {
           console.error(err);

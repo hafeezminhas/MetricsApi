@@ -1,16 +1,21 @@
-import { Router, Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response, Router } from 'express';
+// @ts-ignore
 import { createValidator } from 'express-joi-validation';
+// @ts-ignore
 import { ApiPath } from 'swagger-express-typescript';
 
-import { AuthRole } from '../auth/role.enum';
-import authMiddleware from '../../middleware/auth.middleware';
-import Controller from '../../interfaces/controller.interface';
-import permit from '../../middleware/permission.middleware';
-import { userModel } from './user.model';
-import UserNotFoundException from '../../exceptions/UserNotFoundException';
-import {userCreateValidator, userUpdateValidator } from './user.dto';
 import HttpException from '../../exceptions/HttpException';
-import {AuthenticationService} from '../auth/auth.service';
+import UserNotFoundException from '../../exceptions/UserNotFoundException';
+
+import authMiddleware from '../../middleware/auth.middleware';
+import { AuthRole } from '../auth/role.enum';
+import permit from '../../middleware/permission.middleware';
+
+import Controller from '../../interfaces/controller.interface';
+
+import { AuthenticationService } from '../auth/auth.service';
+import { userCreateValidator, userUpdateValidator } from './user.dto';
+import { userModel } from './user.model';
 
 const validator = createValidator();
 
@@ -45,7 +50,8 @@ class UserController implements Controller {
 
   private getUsers = async (request: Request | any, response: Response, _: NextFunction) => {
     const company = request.user.company;
-    const userQuery = this.user.find({ $and: [{ company }, { role: AuthRole.USER }] }).populate('company');
+    const isDeleted = request.params.deleted || false;
+    const userQuery = this.user.find({ $and: [{ company }, { isDeleted }, { role: AuthRole.USER }] }).populate('company');
     const users = await userQuery;
 
     response.send(users);
@@ -102,10 +108,13 @@ class UserController implements Controller {
     const target = await this.user.findById(id);
     if (target) {
       try {
-        const user = await this.user.findByIdAndUpdate(id, {
-          $set: { isDeleted: true },
-          $new: true,
-        });
+        const user = await this.user.findByIdAndUpdate(
+          id,
+          {
+            $set: { isDeleted: true },
+          },
+          { new: true },
+        );
         response.send(user);
       } catch (err) {
         next(new HttpException(500, err));

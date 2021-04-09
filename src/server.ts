@@ -5,6 +5,7 @@ import { App } from './app';
 import { AuthenticationController } from './api/auth/auth.controller';
 import { CompanyController } from './api/company/company.controller';
 import { PlantController } from './api/plant/plant.controller';
+import { TestController } from './api/test/test.controller';
 import { UserController } from './api/user/user.controller';
 
 import validateEnv from './utils/validateEnv';
@@ -17,6 +18,7 @@ const app = new App(
     new CompanyController(),
     new UserController(),
     new PlantController(),
+    new TestController(),
   ],
 );
 

@@ -1,6 +1,7 @@
 import * as bcrypt from 'bcrypt';
 import { NextFunction, Request, Response, Router } from 'express';
 import * as jwt from 'jsonwebtoken';
+// @ts-ignore
 import { createValidator } from 'express-joi-validation';
 
 import authMiddleware from '../../middleware/auth.middleware';
@@ -65,7 +66,7 @@ class AuthenticationController implements Controller {
 
   private login = async (request: Request, response: Response, next: NextFunction) => {
     const logInData: { email: string, password: string } = request.body;
-    const user: User | any = await this.user.findOne({ email: logInData.email });
+    const user: any = await this.user.findOne({ email: logInData.email });
     if (user) {
       const isMatching = await bcrypt.compare(
         logInData.password,

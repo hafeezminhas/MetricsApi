@@ -1,3 +1,5 @@
+import { Company } from '../company/company.interface';
+
 class TestParams {
   public date: Date;
   public airTemp: number;
@@ -10,10 +12,12 @@ class TestParams {
 }
 
 interface Test {
+  _id?: string;
   name: string;
-  description: string; // large string possibly a textarea in UI
-  plants: string[]; // REFs to Plants
-  testParams: TestParams[]; // Can have multiple params model list against each test
+  description: string;
+  plants: string[];
+  testParams: TestParams[];
+  company: Company | string;
   resultDate: Date;
   wetWeight: number;
   dryWeight: number;
@@ -28,6 +32,7 @@ interface Test {
   CBN: number;
   CBT: number;
   TAC: number;
+  isDeleted: boolean;
 }
 
-export { TestParams, Test }
+export { TestParams, Test };

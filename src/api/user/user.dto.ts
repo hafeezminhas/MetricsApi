@@ -2,7 +2,6 @@ import * as joi from 'joi';
 
 import { Address } from './address.dto';
 import { addressSchema } from './address.dto';
-import {AuthRole} from '../auth/role.enum';
 
 interface User {
   _id?: string | any;

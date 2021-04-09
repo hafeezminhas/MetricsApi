@@ -13,6 +13,11 @@ const plantSchema = new mongoose.Schema(
     phaseHistory: [{ ref: 'PhaseHistory', type: mongoose.Schema.Types.ObjectId }],
     location: { type: String, required: true },
     company: { ref: 'Company', type: mongoose.Schema.Types.ObjectId },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+      get: (): undefined => undefined,
+    },
   },
   { timestamps: true },
 );

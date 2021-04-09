@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as joi from 'joi';
 import { phaseHistoryList } from './plant.enum';
 
